@@ -1,38 +1,32 @@
-# Your First Game Godot 2d Platformer
+# 2020-1 Open Source Software Project - Lime Stone
 
-This is the complete Open Source Project for our upcoming free beginner Godot 2D Platformer course. It will show you how to create your first Godot game from start to finish.
+## Project
 
-➡ Follow us on [Twitter](https://twitter.com/NathanGDQuest) and [YouTube](https://www.youtube.com/c/gdquest/) for free game creation tutorials, tips, and news! Get one of our [Godot game creation courses](https://gdquest.mavenseed.com/) to support our work on Free Software.
+프로젝트명: 피해줘 코로나
+프로젝트 팀명: Lime Stone
+프로젝트 팀원: 정은비, 윤요섭, 김세영, 정나영
+담당 교수: 김동호 교수님
 
-![The game you'll create](./assets/project-banner.png)
+![피해줘 코로나의 배너로 변경하기](./assets/project-banner.png)
+프로젝트 설명: 
+- COVID-19 감염증과 사회적 거리두기를 테마로 한 2D 벨트 스크롤 게임
+- 여러 플레이어들을 대상으로 COVID-19 감염 방지와 예방을 위해 게임 매체를 통한 '사회적 거리두기'를 더욱 친근하고 알기 쉽게 전달하는 데 목적을 두고 있음.
 
-## What you'll learn
+## Develop Environment
 
-- Build a platform game with connected levels, pass through platforms, coins, enemies…
-- Design a title screen, pause menu, and score counter
-- Learn some good Godot programming practices to keep your projects organized
+- 사용언어: GDScript
+- 게임 엔진: Godot engine(v3.2.1)
 
-## Prerequisites
 
-- You will need some **basic understanding of GDScript**, which we cover in our [introduction to GDScript](https://www.youtube.com/watch?v=UcdwP1Q2UlU). GDScript is the programming language you will use in Godot to code your games.
+## 프로젝트 역할 분담
 
-We also recommend reading the great [step-by-step guide](http://docs.godotengine.org/en/stable/getting_started/step_by_step/index.html) in the official Godot docs, if you haven't already.
+정은비: 팀장, 기획 및 버전 관리
+윤요섭: 게임 로직 정의 및 코딩
+정나영: 게임 리소스 관리, 수집 및 적용
+김세영: QA, 버그 리포트 및 버그 픽스
 
-## How to get this free course
 
-The course will come out on our YouTube channel at the end of September. To get it, [subscribe to the GDQuest channel](https://youtube.com/c/gdquest) and click the notification bell to know when it is out.
+## Reference
 
-We will also release a free introduction to steering behaviours soon, designed to be beginner-friendly as well!
-
-## Support gdquest
-
-This free series is sponsored by our [platformer game creation course](https://gdquest.mavenseed.com).
-
-GDQuest is a social company focused on education and bringing people together around Free Software.
-
-We share **the techniques professionals use to make games** and open source the code for most of our projects on [our GitHub page](https://github.com/GDquest/).
-
-You can:
-
-- Join the community on [Discord](https://discord.gg/dKUX7m3)
-- Follow us on [Twitter](https://twitter.com/NathanGDQuest)
+베이스 오픈소스:
+                  GDQuest/Your First Game Godot 2d Platformer(https://github.com/GDQuest/godot-beginner-2d-platformer)

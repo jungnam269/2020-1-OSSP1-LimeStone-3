@@ -11,7 +11,7 @@
     담당 교수: 김동호 교수님
 
 
-![피해줘 코로나의 배너로 변경하기](./피해줘코로나.png)
+![피해줘 코로나의 배너로 변경하기](./피해줘코로나banner.png)
 
 프로젝트 설명: 
 
@@ -53,7 +53,9 @@
 리소스:
 
 Art resource
+
     정나영 - 피해자코로나banner.png, 피해줘코로나 시작화면2.png,
+
     정은비 - Player_resource.png, Enemy_resource.png, Enemy_resource2.png, Stage2 background - DGUmarket.png, Stage3 background - mainstreet Lime.png, attack effect resource.png,
 
     OpenGameArt.ORG 
@@ -62,4 +64,5 @@ Art resource
 
 
 Sound resource
+
      

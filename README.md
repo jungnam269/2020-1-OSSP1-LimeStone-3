@@ -2,6 +2,9 @@
 
 ## Project
 
+![피해줘 코로나의 배너로 변경하기](./피해줘코로나banner.png)
+
+
     프로젝트명: 피해줘 코로나
 
     프로젝트 팀명: Lime Stone
@@ -11,13 +14,12 @@
     담당 교수: 김동호 교수님
 
 
-![피해줘 코로나의 배너로 변경하기](./피해줘코로나banner.png)
-
 프로젝트 설명: 
 
     - COVID-19 감염증과 사회적 거리두기를 테마로 한 2D 벨트 스크롤 게임
 
-    - 여러 플레이어들을 대상으로 COVID-19 감염 방지와 예방을 위해 게임 매체를 통한 '사회적 거리두기'를 더욱 친근하고 알기 쉽게 전달하는 데 목적을 두고 있음.
+    - 여러 플레이어들을 대상으로 COVID-19 감염 방지와 예방을 위해 게임 매체를 통한 '사회적 거리두기'를 
+    더욱 친근하고 알기 쉽게 전달하는 데 목적을 두고 있음.
 
 
 ## Develop Environment
@@ -45,18 +47,19 @@
 ## Reference
 
 
-베이스 오픈소스:
+- 베이스 오픈소스:
 
      GDQuest/Your First Game Godot 2d Platformer(https://github.com/GDQuest/godot-beginner-2d-platformer)
 
 
-리소스:
+- 리소스:
 
 Art resource
 
     정나영 - 피해자코로나banner.png, 피해줘코로나 시작화면2.png,
 
-    정은비 - Player_resource.png, Enemy_resource.png, Enemy_resource2.png, Stage2 background - DGUmarket.png, Stage3 background - mainstreet Lime.png, attack effect resource.png,
+    정은비 - Player_resource.png, Enemy_resource.png, Enemy_resource2.png, Stage2 background - DGUmarket.png, 
+    Stage3 background - mainstreet Lime.png, attack effect resource.png,
 
     OpenGameArt.ORG 
         - https://opengameart.org/content/platformer-art-buildings

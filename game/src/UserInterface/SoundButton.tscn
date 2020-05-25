@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/happy (online-audio-converter.com).wav" type="AudioStream" id=1]
+[ext_resource path="res://Sceens/Sound Button.gd" type="Script" id=2]
+
+[node name="Sound Button" type="Button"]
+margin_left = 919.757
+margin_top = 31.4605
+margin_right = 992.757
+margin_bottom = 101.461
+text = "music"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+autoplay = true
+[connection signal="pressed" from="." to="." method="_on_Sound_Button_pressed"]

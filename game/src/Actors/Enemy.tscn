@@ -1,44 +1,68 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://src/Actors/Enemy.gd" type="Script" id=1]
-[ext_resource path="res://assets/enemy.png" type="Texture" id=2]
+[ext_resource path="res://src/Actors/enemy.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprite/en1stand.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprite/en1walk3.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprite/en1walk1.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprite/en1walk2.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprite/en1walk4.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprite/en1walk5.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprite/en1walk6.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprite/en1walk7.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprite/en1walk8.png" type="Texture" id=10]
+[ext_resource path="res://assets/Enemy_attecked2.png" type="Texture" id=11]
+[ext_resource path="res://assets/Enemy_attecked1.png" type="Texture" id=12]
 
-[sub_resource type="OccluderPolygon2D" id=1]
-polygon = PoolVector2Array( -0.0765228, 46.5714, -22.833, 46.189, -38.1315, 42.7468, -47.8843, 35.48, -52.8564, 27.0658, -54.5774, 18.2692, -54.0037, 5.07425, -48.6493, -13.0927, -35.8368, -32.0246, -20.9207, -43.116, -7.53454, -47.5144, 0.114708, -47.8968, 10.25, -46.9407, 21.5326, -42.3511, 32.624, -34.1282, 44.8628, -20.5507, 52.8945, -2.00131, 54.6156, 11.3849, 54.8069, 19.2254, 52.7033, 27.4483, 46.0102, 37.5836, 35.6837, 43.3205, 22.2975, 46.3802 )
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "move",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "zapp",
+"speed": 5.0
+} ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 40, 34 )
+extents = Vector2( 46.2465, 152.572 )
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 40, 10.5328 )
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 90.0139
+height = 42.1506
 
 [node name="Enemy" type="KinematicBody2D"]
-collision_layer = 2
-collision_mask = 4
+collision_mask = 8
 script = ExtResource( 1 )
+speed = Vector2( 50, 1000 )
+gravity = 0.0
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -44.9277 )
-texture = ExtResource( 2 )
+[node name="enemy" type="Sprite" parent="."]
+position = Vector2( 0, -48 )
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite"]
-occluder = SubResource( 1 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -11.1581, -239.477 )
+frames = SubResource( 1 )
+animation = "stand"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -34 )
+position = Vector2( 0, -151.9 )
 shape = SubResource( 2 )
 
-[node name="StompArea2D" type="Area2D" parent="."]
-position = Vector2( 0, -66.4549 )
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StompArea2D"]
-position = Vector2( 0, -4.93669 )
-shape = SubResource( 3 )
-
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
-position = Vector2( 0, -33 )
-rect = Rect2( -50, -33, 100, 66 )
+position = Vector2( 3.70126, -250.734 )
+scale = Vector2( 10.622, 26.0734 )
 process_parent = true
 physics_process_parent = true
-[connection signal="area_entered" from="StompArea2D" to="." method="_on_StompArea2D_area_entered"]
+
+[node name="Head" type="CollisionShape2D" parent="."]
+position = Vector2( 2.39166, -416.148 )
+rotation = 1.57079
+shape = SubResource( 3 )

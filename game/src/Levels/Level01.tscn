@@ -9,7 +9,6 @@
 [ext_resource path="res://src/Objects/Coin.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Actors/Enemy.tscn" type="PackedScene" id=8]
 
-
 [node name="Level01" type="Node2D"]
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
@@ -37,7 +36,7 @@ tile_data = PoolIntArray( 65535, 0, 0, 96, 0, 0, 131071, 0, 0, 65613, 1, 0, 6561
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 200, 760 )
 
-[node name="Camera2D" parent="Player" index="0"]
+[node name="Camera2D" parent="Player" index="3"]
 limit_right = 7760
 
 [node name="Portal2D" parent="." instance=ExtResource( 5 )]

@@ -49,21 +49,25 @@
 
 - 베이스 오픈소스:
 
+
     GDQuest/Your First Game Godot 2d Platformer(https://github.com/GDQuest/godot-beginner-2d-platformer)
 
 
 - Art resource
+
 
     정나영 - 피해자코로나banner.png, 피해줘코로나 시작화면2.png
 
     정은비 - Player_resource.png, Enemy_resource1.png, Enemy_resource2.png, Enemy_resource3.png, Stage2 background - DGUmarket.png, Stage3 background - mainstreet Lime.png, attack effect resource.png, gohome_resource.png, Immunity_gauge.png
     
     OpenGameArt.ORG 
+
         - https://opengameart.org/content/platformer-art-buildings
 
         - https://opengameart.org/content/free-game-qui
 
 
 - Sound resource
+
 
      OpenGameArt.ORG - https://opengameart.org/content/happy-arcade-tune

@@ -36,5 +36,5 @@ script = ExtResource( 3 )
 [node name="Score_counter" parent="." instance=ExtResource( 1 )]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -446.0
-margin_right = -96.0
+margin_left = -438.0
+margin_right = -138.0

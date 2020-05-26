@@ -2,7 +2,7 @@
 
 ## Project
 
-![피해줘 코로나의 배너로 변경하기](./피해줘코로나banner.png)
+![피해줘 코로나의 배너](./gamebanner.png)
 
 
     프로젝트명: 피해줘 코로나
@@ -57,12 +57,13 @@
     정나영 - 피해자코로나banner.png, 피해줘코로나 시작화면2.png
 
     정은비 - Player_resource.png, Enemy_resource1.png, Enemy_resource2.png, Enemy_resource3.png, Stage2 background - DGUmarket.png, Stage3 background - mainstreet Lime.png, attack effect resource.png, gohome_resource.png, Immunity_gauge.png
-
+    
     OpenGameArt.ORG 
         - https://opengameart.org/content/platformer-art-buildings
+
         - https://opengameart.org/content/free-game-qui
 
 
 - Sound resource
 
-     
+     OpenGameArt.ORG - https://opengameart.org/content/happy-arcade-tune

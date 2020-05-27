@@ -62,12 +62,12 @@
     
     OpenGameArt.ORG 
 
-        - https://opengameart.org/content/platformer-art-buildings
+    - https://opengameart.org/content/platformer-art-buildings
 
-        - https://opengameart.org/content/free-game-qui
+    - https://opengameart.org/content/free-game-qui
 
 
 - Sound resource
 
 
-     OpenGameArt.ORG - https://opengameart.org/content/happy-arcade-tune
+    OpenGameArt.ORG - https://opengameart.org/content/happy-arcade-tune

@@ -34,13 +34,13 @@
 ## 프로젝트 역할 분담
 
 
-    정은비: 팀장, 기획 및 버전 관리
+    정은비: 팀장, 기획 및 버전 관리 - https://github.com/JungEunbee/2020-1-OSSP1-LimeStone-3.git
 
-    윤요섭: 게임 로직 정의 및 코딩
+    윤요섭: 게임 로직 정의 및 코딩 - https://github.com/shown45/2020-1-OSSP1-LimeStone-3.git
 
-    정나영: 게임 리소스 관리, 수집 및 적용
+    정나영: 게임 리소스 관리, 수집 및 적용 - https://github.com/jungnam269/2020-1-OSSP1-LimeStone-3.git
 
-    김세영: QA, 버그 리포트 및 버그 픽스
+    김세영: QA, 버그 리포트 및 버그 픽스 - https://github.com/Seyoung1220/2020-1-OSSP1-LimeStone-3.git
 
 
 

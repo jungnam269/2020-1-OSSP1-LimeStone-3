@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pause메뉴화면.png-a561b51f775348903af8652ef72f6d14.stex"
+path="res://.import/Pausemenu.png-ce2704cdc5988fe0548d8dcc0f343f23.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Pause메뉴화면.png"
-dest_files=[ "res://.import/Pause메뉴화면.png-a561b51f775348903af8652ef72f6d14.stex" ]
+source_file="res://assets/Pausemenu.png"
+dest_files=[ "res://.import/Pausemenu.png-ce2704cdc5988fe0548d8dcc0f343f23.stex" ]
 
 [params]
 

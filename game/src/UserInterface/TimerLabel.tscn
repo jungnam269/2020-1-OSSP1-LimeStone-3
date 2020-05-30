@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/Score_theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/UserInterface/TimerLabel.gd" type="Script" id=2]
+[ext_resource path="res://assets/Score_dynamicfont.tres" type="DynamicFont" id=3]
+
+[node name="TimerLabel" type="RichTextLabel"]
+margin_left = 608.58
+margin_top = 31.8639
+margin_right = 714.58
+margin_bottom = 106.864
+theme = ExtResource( 1 )
+custom_fonts/bold_font = ExtResource( 3 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

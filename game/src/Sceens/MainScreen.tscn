@@ -52,7 +52,7 @@ text = ""
 icon = ExtResource( 9 )
 flat = true
 expand_icon = true
-next_scene_path = "res://src/Levels/Stage1.tres"
+next_scene_path = "res://src/Levels/Stage1.tscn"
 
 [node name="QuitButton" parent="." instance=ExtResource( 5 )]
 margin_left = 831.332

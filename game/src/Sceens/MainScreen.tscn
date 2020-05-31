@@ -54,6 +54,7 @@ flat = true
 expand_icon = true
 next_scene_path = "res://src/Levels/Stage1.tscn"
 
+
 [node name="QuitButton" parent="." instance=ExtResource( 5 )]
 margin_left = 831.332
 margin_top = 520.776

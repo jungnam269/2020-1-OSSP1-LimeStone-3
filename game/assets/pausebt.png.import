@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pause버튼.png-551093d802855e8c342eb41eb4bbb065.stex"
+path="res://.import/pausebt.png-2d96540e22d8a6a8c618687c23bfa073.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pause버튼.png"
-dest_files=[ "res://.import/pause버튼.png-551093d802855e8c342eb41eb4bbb065.stex" ]
+source_file="res://assets/pausebt.png"
+dest_files=[ "res://.import/pausebt.png-2d96540e22d8a6a8c618687c23bfa073.stex" ]
 
 [params]
 

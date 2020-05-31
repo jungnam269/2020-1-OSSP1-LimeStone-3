@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Immunity_gauge_fill.png-4b00587770713f7c36577e4dba2fbde7.stex"
+path="res://.import/Immunity_gauge_fill.png-7f911a35d5a2e11aa540fe3c0233cc78.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Immunity_gauge_fill.png"
-dest_files=[ "res://.import/Immunity_gauge_fill.png-4b00587770713f7c36577e4dba2fbde7.stex" ]
+source_file="res://assets/Immunity_gauge_fill.png"
+dest_files=[ "res://.import/Immunity_gauge_fill.png-7f911a35d5a2e11aa540fe3c0233cc78.stex" ]
 
 [params]
 

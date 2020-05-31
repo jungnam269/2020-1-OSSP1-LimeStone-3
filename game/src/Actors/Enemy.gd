@@ -2,6 +2,8 @@ extends "res://src/Actors/Actor.gd"
  #적 구현 예시 1. 플레이어를 쫒아오는 
 
 var hp = 100
+signal mouseon
+signal mouseoff
 
 func _ready() -> void:	#적은 플레이어 시야에 출현하기 전에는 작동하지 않는다.
 	set_physics_process(false)
@@ -23,9 +25,17 @@ func _process(delta): #기본 상태에서는 stop 에 해당하는 스프라이
 	else:
 		$AnimatedSprite.play("stand")
 		
-func take_damage():
+func _on_Area2D_area_entered(area):
+	print("Oh!")
+	set_process(false)
 	set_physics_process(false)
 	$AnimatedSprite.play("zapp")
-	hp -= 100
-	if hp <= 0:
-		queue_free()
+	
+func _on_Area2D_area_exited(area):
+	print("Oh!2")
+	set_process(true)
+	set_physics_process(true)
+	die()
+	
+func die():
+	queue_free()

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/topbar.png-265c23a9f07acde57e833698b8ec1014.stex"
+path="res://.import/topbar.png-fbb61e340c252e296f76e1d3dc0da37b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://topbar.png"
-dest_files=[ "res://.import/topbar.png-265c23a9f07acde57e833698b8ec1014.stex" ]
+source_file="res://assets/topbar.png"
+dest_files=[ "res://.import/topbar.png-fbb61e340c252e296f76e1d3dc0da37b.stex" ]
 
 [params]
 

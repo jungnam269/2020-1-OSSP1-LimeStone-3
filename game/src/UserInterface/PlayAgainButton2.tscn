@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/UserInterface/PlayAgainButton2.gd" type="Script" id=1]
+
+[node name="PlayAgainButton2" type="Button"]
+margin_left = 421.896
+margin_top = 465.531
+margin_right = 606.896
+margin_bottom = 521.531
+text = "PlayAgain"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="." to="." method="_on_PlayAgainButton2_button_up"]

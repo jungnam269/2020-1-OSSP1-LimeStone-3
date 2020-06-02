@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/UserInterface/PlayAgainButton3.gd" type="Script" id=1]
+
+[node name="PlayAgainButton3" type="Button"]
+margin_left = 416.195
+margin_top = 464.278
+margin_right = 600.195
+margin_bottom = 519.278
+text = "PlayAgain"
+script = ExtResource( 1 )
+[connection signal="button_up" from="." to="." method="_on_PlayAgainButton3_button_up"]

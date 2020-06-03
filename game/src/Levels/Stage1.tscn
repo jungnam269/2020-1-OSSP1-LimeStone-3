@@ -5,15 +5,15 @@
 [ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Actors/Enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Levels/Stage1.tres" type="TileSet" id=5]
-[ext_resource path="res://assets/topbar.png" type="Texture" id=6]
+[ext_resource path="res://assets/Arcade fast flow1.ogg" type="AudioStream" id=6]
 [ext_resource path="res://src/UserInterface/Socore_counter.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/UserInterface/Top_Bar.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/UserInterface/Immunity_Bar.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/Immunity_gauge_fill.png" type="Texture" id=9]
 [ext_resource path="res://assets/Timer_theme.tres" type="Theme" id=10]
 [ext_resource path="res://assets/Scorelabel_theme.tres" type="Theme" id=11]
 [ext_resource path="res://src/UserInterface/Interface.gd" type="Script" id=12]
 [ext_resource path="res://src/UserInterface/TimerLabel.gd" type="Script" id=13]
-[ext_resource path="res://src/UserInterface/Immunity_Bar.gd" type="Script" id=14]
+[ext_resource path="res://assets/Immunity_gauge_bg.png" type="Texture" id=14]
 
 [sub_resource type="TileSet" id=1]
 0/name = "stage1"
@@ -100,28 +100,50 @@ position = Vector2( 136, 576 )
 scale = Vector2( 0.6, 0.6 )
 speed = Vector2( 100, 0 )
 
-[node name="Interface" type="Control" parent="."]
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+position = Vector2( 843.399, -356.548 )
+scale = Vector2( 1.66667, 1.66667 )
+current = true
+
+[node name="Interface" type="Control" parent="Player/Camera2D2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -642.039
+margin_top = -362.071
+margin_right = -642.039
+margin_bottom = -362.071
 script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Topbar" type="NinePatchRect" parent="Interface" instance=ExtResource( 8 )]
+[node name="Topbar" parent="Player/Camera2D2/Interface" instance=ExtResource( 8 )]
 anchor_right = 1.0
 margin_bottom = 16.0
-rect_min_size = Vector2( 1280, 130 )
-texture = ExtResource( 6 )
-patch_margin_left = 8
-patch_margin_top = 8
-patch_margin_right = 8
-patch_margin_bottom = 8
+
+[node name="TextureProgress" type="TextureProgress" parent="Player/Camera2D2/Interface"]
+margin_left = 53.7229
+margin_top = 57.1541
+margin_right = 469.723
+margin_bottom = 143.154
+max_value = 100.0
+value = 100.0
+texture_progress = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Immunity_Bar_Label" type="Label" parent="Interface"]
+[node name="TextureRect" type="TextureRect" parent="Player/Camera2D2/Interface"]
+margin_left = 7.72288
+margin_top = 39.154
+margin_right = 423.723
+margin_bottom = 125.154
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Immunity_Bar_Label" type="Label" parent="Player/Camera2D2/Interface"]
 margin_left = 56.0
 margin_top = 8.0
 margin_right = 245.0
@@ -132,37 +154,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Immunity bar" type="VBoxContainer" parent="Interface"]
-margin_left = 86.9806
-margin_top = 55.2232
-margin_right = 502.981
-margin_bottom = 141.223
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Bar" type="HBoxContainer" parent="Interface/Immunity bar" instance=ExtResource( 9 )]
-margin_right = 416.0
-margin_bottom = 50.0
-script = ExtResource( 14 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Score_counter" type="NinePatchRect" parent="Interface" instance=ExtResource( 7 )]
+[node name="Score_counter" parent="Player/Camera2D2/Interface" instance=ExtResource( 7 )]
 margin_left = 824.0
 margin_right = 1124.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 300, 100 )
-patch_margin_left = 8
-patch_margin_top = 8
-patch_margin_right = 8
-patch_margin_bottom = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="TimerLabel" type="RichTextLabel" parent="Interface"]
+[node name="TimerLabel" type="RichTextLabel" parent="Player/Camera2D2/Interface"]
 margin_left = 584.0
 margin_top = 24.0
 margin_right = 768.0
@@ -175,6 +171,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Timer" type="Timer" parent="Interface/TimerLabel"]
+[node name="Timer" type="Timer" parent="Player/Camera2D2/Interface/TimerLabel"]
 autostart = true
-[connection signal="timeout" from="Interface/TimerLabel/Timer" to="Interface/TimerLabel" method="_on_Timer_timeout"]
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2( -226.667, -960 )
+scale = Vector2( 1.66667, 1.66667 )
+stream = ExtResource( 6 )
+autoplay = true
+[connection signal="immunedamage" from="Player" to="Player/Camera2D2/Interface" method="_on_Player_immunedamage"]
+[connection signal="timeout" from="Player/Camera2D2/Interface/TimerLabel/Timer" to="Player/Camera2D2/Interface/TimerLabel" method="_on_Timer_timeout"]

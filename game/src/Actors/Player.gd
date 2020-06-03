@@ -3,15 +3,21 @@ extends Actor
 signal attacked()
 
 var laser = preload("res://src/Attack/LaserBeam.tscn")
+var facingRight = true
 
 func _process(delta):	#스프라이트 적용과 버튼 입력에 따라 스프라이트를 좌우 반전 시킴
+	
+	if not facingRight:
+		$Eyezone.position.x = -$Eyezone.position.x
 	
 	if Input.is_action_pressed("move_right"):
 		$AnimatedSprite.play("move")
 		$AnimatedSprite.flip_h = false
+		facingRight = true
 	elif Input.is_action_pressed("move_left"):
 		$AnimatedSprite.play("move")
 		$AnimatedSprite.flip_h = true
+		facingRight = false
 	else:
 		$AnimatedSprite.stop()
 	

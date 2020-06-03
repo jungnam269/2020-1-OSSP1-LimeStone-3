@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/UserInterface/Socore_counter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/UserInterface/Immunity_Bar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/UserInterface/Immunity_Bar.gd" type="Script" id=3]
 [ext_resource path="res://src/UserInterface/Interface.gd" type="Script" id=4]
+[ext_resource path="res://assets/Timer_theme.tres" type="Theme" id=5]
 [ext_resource path="res://src/UserInterface/Top_Bar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/UserInterface/TimerLabel.gd" type="Script" id=7]
+[ext_resource path="res://assets/Scorelabel_theme.tres" type="Theme" id=8]
 
 [node name="Interface" type="Control"]
 anchor_right = 1.0
@@ -18,6 +21,17 @@ __meta__ = {
 anchor_right = 1.0
 margin_right = 0.0
 margin_bottom = 16.0
+
+[node name="Immunity_Bar_Label" type="Label" parent="."]
+margin_left = 56.0
+margin_top = 8.0
+margin_right = 245.0
+margin_bottom = 52.0
+theme = ExtResource( 8 )
+text = "면역 게이지"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Immunity bar" type="VBoxContainer" parent="."]
 margin_left = 86.9806
@@ -34,5 +48,22 @@ margin_bottom = 50.0
 script = ExtResource( 3 )
 
 [node name="Score_counter" parent="." instance=ExtResource( 1 )]
-margin_left = 848.0
-margin_right = 1148.0
+margin_left = 824.0
+margin_right = 1124.0
+
+[node name="TimerLabel" type="RichTextLabel" parent="."]
+margin_left = 584.0
+margin_top = 24.0
+margin_right = 768.0
+margin_bottom = 128.0
+theme = ExtResource( 5 )
+custom_colors/default_color = Color( 0.588235, 0.654902, 0.654902, 1 )
+text = "90"
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="TimerLabel"]
+autostart = true
+[connection signal="timeout" from="TimerLabel/Timer" to="TimerLabel" method="_on_Timer_timeout"]

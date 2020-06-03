@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/Immunity_gauge_bg.png" type="Texture" id=2]
 
 [node name="Bar" type="HBoxContainer"]
-margin_right = 580.0
+margin_right = 588.0
 margin_bottom = 86.0
 __meta__ = {
 "_edit_use_anchors_": false

@@ -13,15 +13,15 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "stand",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "move",
 "speed": 8.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -30,6 +30,7 @@ extents = Vector2( 40, 224 )
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 8
 script = ExtResource( 11 )
+speed = Vector2( 300, 0 )
 gravity = 0.0
 
 [node name="player" type="Sprite" parent="."]
@@ -44,9 +45,9 @@ animation = "stand"
 position = Vector2( 0, -224 )
 shape = SubResource( 2 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 0, -226.794 )
-current = true
-
 [node name="Eyezone" type="Position2D" parent="."]
-position = Vector2( 65.4232, -413.122 )
+position = Vector2( 122.345, -416.917 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 3.09088, -241.089 )
+current = true

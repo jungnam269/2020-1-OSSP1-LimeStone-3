@@ -1,7 +1,7 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/Countdown_timer/Main_Timer.gd" type="Script" id=1]
-[ext_resource path="res://src/Countdown_timer/Pause.gd" type="Script" id=2]
+[ext_resource path="res://src/Countdown_timer/PauseMenuLayer.gd" type="Script" id=2]
 [ext_resource path="res://assets/Pausemenu.png" type="Texture" id=3]
 [ext_resource path="res://assets/resumebarbt.png" type="Texture" id=4]
 [ext_resource path="res://assets/exitbt.png" type="Texture" id=5]
@@ -9,24 +9,22 @@
 [ext_resource path="res://assets/restartbarbt.png" type="Texture" id=7]
 [ext_resource path="res://assets/volumncontrolbt.png" type="Texture" id=8]
 [ext_resource path="res://assets/pausebt.png" type="Texture" id=9]
-[ext_resource path="res://src/Countdown_timer/Continue.tscn" type="PackedScene" id=10]
-[ext_resource path="res://src/Countdown_timer/NewGame.tscn" type="PackedScene" id=11]
-[ext_resource path="res://src/Countdown_timer/Resumebtn.gd" type="Script" id=12]
-[ext_resource path="res://src/Countdown_timer/Continue.gd" type="Script" id=13]
 [ext_resource path="res://src/Countdown_timer/BgmOnOffbtn.gd" type="Script" id=14]
-[ext_resource path="res://src/Countdown_timer/NewGame.gd" type="Script" id=15]
-[ext_resource path="res://src/Countdown_timer/VolumnControlbtn.gd" type="Script" id=16]
+[ext_resource path="res://assets/Scorelabe_dynamicfont.tres" type="DynamicFont" id=17]
 
 [node name="NYbackground" type="ColorRect"]
 pause_mode = 1
 anchor_right = 0.992
 anchor_bottom = 0.987
-margin_right = 10.24
-margin_bottom = 9.36005
+margin_right = -624.64
+margin_bottom = -345.96
 color = Color( 0.988235, 0.690196, 0.913725, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
 
 [node name="Main_Timer" type="Control" parent="."]
 anchor_right = 1.0
@@ -61,6 +59,7 @@ rect_scale = Vector2( 2, 2 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
+custom_fonts/font = ExtResource( 17 )
 custom_colors/font_color = Color( 0.509804, 0.168627, 0.168627, 1 )
 custom_constants/shadow_offset_y = 2
 text = "0"
@@ -76,10 +75,7 @@ pause_mode = 1
 wait_time = 30.0
 autostart = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Main_Timer"]
-layer = 100
-
-[node name="Pause" type="Control" parent="Main_Timer/CanvasLayer"]
+[node name="PauseMenuLayer" type="Control" parent="."]
 pause_mode = 2
 margin_right = 1280.0
 margin_bottom = 720.0
@@ -88,7 +84,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BlackOverlay" type="ColorRect" parent="Main_Timer/CanvasLayer/Pause"]
+[node name="BlackOverlay" type="ColorRect" parent="PauseMenuLayer"]
 anchor_right = 1.008
 anchor_bottom = 1.0
 margin_right = -10.24
@@ -97,13 +93,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Pause메뉴화면" type="Sprite" parent="Main_Timer/CanvasLayer/Pause/BlackOverlay"]
+[node name="Pause메뉴화면" type="Sprite" parent="PauseMenuLayer/BlackOverlay"]
 pause_mode = 2
 position = Vector2( 638.236, 382.482 )
 scale = Vector2( 0.953547, 0.851991 )
 texture = ExtResource( 3 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Main_Timer/CanvasLayer/Pause/BlackOverlay/Pause메뉴화면"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenuLayer/BlackOverlay/Pause메뉴화면"]
 anchor_left = 0.195
 anchor_top = 0.181
 anchor_right = 0.899
@@ -121,7 +117,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BgmOnOffbtn" type="TextureButton" parent="Main_Timer/CanvasLayer/Pause/BlackOverlay/Pause메뉴화면/HBoxContainer"]
+[node name="BgmOnOffbtn" type="TextureButton" parent="PauseMenuLayer/BlackOverlay/Pause메뉴화면/HBoxContainer"]
 margin_right = 142.0
 margin_bottom = 153.0
 size_flags_horizontal = 12
@@ -130,7 +126,7 @@ size_flags_stretch_ratio = 3.75
 texture_normal = ExtResource( 6 )
 script = ExtResource( 14 )
 
-[node name="VolumnControlbtn" type="TextureButton" parent="Main_Timer/CanvasLayer/Pause/BlackOverlay/Pause메뉴화면/HBoxContainer"]
+[node name="VolumnControlbtn" type="TextureButton" parent="PauseMenuLayer/BlackOverlay/Pause메뉴화면/HBoxContainer"]
 margin_left = 142.0
 margin_right = 307.0
 margin_bottom = 153.0
@@ -138,9 +134,8 @@ size_flags_horizontal = 12
 size_flags_vertical = 12
 texture_normal = ExtResource( 8 )
 stretch_mode = 2
-script = ExtResource( 16 )
 
-[node name="Pause_Menu" type="VBoxContainer" parent="Main_Timer/CanvasLayer/Pause/BlackOverlay/Pause메뉴화면"]
+[node name="PauseControlMenu" type="VBoxContainer" parent="PauseMenuLayer/BlackOverlay/Pause메뉴화면"]
 pause_mode = 2
 anchor_left = -0.772
 anchor_top = -0.149
@@ -157,35 +152,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Resumebtn" type="Button" parent="Main_Timer/CanvasLayer/Pause/BlackOverlay/Pause메뉴화면/Pause_Menu"]
+[node name="Resumebtn" type="Button" parent="PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu"]
 margin_right = 222.0
 margin_bottom = 97.0
 icon = ExtResource( 4 )
 flat = true
-script = ExtResource( 12 )
 
-[node name="Restartbtn" type="Button" parent="Main_Timer/CanvasLayer/Pause/BlackOverlay/Pause메뉴화면/Pause_Menu"]
+[node name="Restartbtn" type="Button" parent="PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu"]
 margin_top = 101.0
 margin_right = 222.0
 margin_bottom = 198.0
 icon = ExtResource( 7 )
 flat = true
 
-[node name="Exitbtn" type="Button" parent="Main_Timer/CanvasLayer/Pause/BlackOverlay/Pause메뉴화면/Pause_Menu"]
+[node name="Exitbtn" type="Button" parent="PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu"]
 margin_top = 202.0
 margin_right = 222.0
 margin_bottom = 299.0
 icon = ExtResource( 5 )
 flat = true
-
-[node name="NewGame" parent="Main_Timer" instance=ExtResource( 11 )]
-margin_top = 0.00012207
-margin_bottom = 0.00012207
-script = ExtResource( 15 )
-
-[node name="Continuescene" parent="Main_Timer" instance=ExtResource( 10 )]
-margin_top = 2.27203
-margin_bottom = 2.27203
-script = ExtResource( 13 )
-[connection signal="pressed" from="Main_Timer/Pausegameinbtn" to="Main_Timer/CanvasLayer/Pause" method="_on_Pausegameinbtn_pressed"]
-[connection signal="pressed" from="Main_Timer/CanvasLayer/Pause/BlackOverlay/Pause메뉴화면/Pause_Menu/Resumebtn" to="Main_Timer/CanvasLayer/Pause" method="_on_Resumebtn_pressed"]
+[connection signal="pressed" from="Main_Timer/Pausegameinbtn" to="PauseMenuLayer" method="_on_Pausegameinbtn_pressed"]
+[connection signal="pressed" from="PauseMenuLayer/BlackOverlay/Pause메뉴화면/HBoxContainer/BgmOnOffbtn" to="PauseMenuLayer" method="_on_BgmOnOffbtn_pressed"]
+[connection signal="button_up" from="PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Resumebtn" to="PauseMenuLayer" method="_on_Resumebtn_button_up"]
+[connection signal="pressed" from="PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Resumebtn" to="PauseMenuLayer" method="_on_Resumebtn_pressed"]
+[connection signal="button_up" from="PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Restartbtn" to="PauseMenuLayer" method="_on_Restartbtn_button_up"]
+[connection signal="button_up" from="PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Exitbtn" to="PauseMenuLayer" method="_on_Exitbtn_button_up"]

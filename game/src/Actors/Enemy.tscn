@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://src/Actors/enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprite/en1stand.png" type="Texture" id=2]
@@ -38,6 +38,10 @@ extents = Vector2( 46.2465, 152.572 )
 radius = 90.0139
 height = 42.1506
 
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 140.223
+height = 461.521
+
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 2
@@ -71,5 +75,14 @@ collision_mask = 2
 position = Vector2( 2.39166, -416.148 )
 rotation = 1.57079
 shape = SubResource( 3 )
+
+[node name="DamageArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2( 0, -257.755 )
+rotation = -1.57079
+shape = SubResource( 4 )
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]

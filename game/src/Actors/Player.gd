@@ -1,6 +1,7 @@
 extends Actor
 
-signal attacked()
+signal immunedamage(hp)
+var hp = 100;
 
 var laser = preload("res://src/Attack/LaserBeam.tscn")
 var facingRight = true
@@ -25,8 +26,10 @@ func _process(delta):	#스프라이트 적용과 버튼 입력에 따라 스프�
 		var laser_shoot_instance = laser.instance()
 		add_child(laser_shoot_instance)
 		laser_shoot_instance.position = $Eyezone.position	
+		$AudioStreamPlayer2D.play()
 		
 	if Input.is_action_just_released("attack") && get_node("LaserBeam") != null:
+		$AudioStreamPlayer2D.stop()
 		get_node("LaserBeam").queue_free()
 
 func _physics_process(delta: float) -> void: #움직이는 물리 구현
@@ -39,3 +42,7 @@ func get_direction() -> Vector2: #입력을 통한 방향이동
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"), 1.0
 	)
 	
+func _on_Immune_area_entered(area):
+	hp -= 10
+	print("checking %s", hp)
+	emit_signal("immunedamage",hp)

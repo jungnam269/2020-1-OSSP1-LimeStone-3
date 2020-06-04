@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/Actors/enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprite/en1stand.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/sprite/en1walk8.png" type="Texture" id=10]
 [ext_resource path="res://assets/Enemy_attecked2.png" type="Texture" id=11]
 [ext_resource path="res://assets/Enemy_attecked1.png" type="Texture" id=12]
+[ext_resource path="res://assets/2scream.wav" type="AudioStream" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -20,14 +21,14 @@ animations = [ {
 "name": "move",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "zapp",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "stand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "zapp",
 "speed": 5.0
 } ]
 
@@ -84,5 +85,8 @@ collision_mask = 4
 position = Vector2( 0, -257.755 )
 rotation = -1.57079
 shape = SubResource( 4 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 13 )
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]

@@ -30,6 +30,7 @@ func _on_Area2D_area_entered(area):
 	set_process(false)
 	set_physics_process(false)
 	$AnimatedSprite.play("zapp")
+	$AudioStreamPlayer2D.play()
 	
 func _on_Area2D_area_exited(area):
 	print("Oh!2")

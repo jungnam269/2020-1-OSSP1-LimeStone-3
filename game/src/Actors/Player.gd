@@ -44,5 +44,10 @@ func get_direction() -> Vector2: #입력을 통한 방향이동
 	
 func _on_Immune_area_entered(area):
 	hp -= 10
+	$AnimatedSprite.set_modulate(Color.red)
 	print("checking %s", hp)
 	emit_signal("immunedamage",hp)
+
+
+func _on_Immune_area_exited(area):
+	$AnimatedSprite.set_modulate(Color.white)

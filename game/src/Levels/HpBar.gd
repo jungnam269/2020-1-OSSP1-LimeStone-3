@@ -15,6 +15,6 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func _on_Player_immunedamage(hp):
-	health = hp
+func _on_Player_immunedamage(immunity):
+	health = immunity
 	TextureProgress.value = health

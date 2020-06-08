@@ -1,13 +1,15 @@
 extends "res://src/Actors/Actor.gd"
  #적 구현 예시 1. 플레이어를 쫒아오는 
 
-onready var hpbar = get_node("HPbar")
+onready var hpbar = get_node("HPbar") #클릭 시 hp바 출력
 
+signal mouseon
+signal mouseoff
+signal enemies_gohome(count)
 var hp = 100
 var current_hp
 var damage = 20
-signal mouseon
-signal mouseoff
+export(int) var count = 0
 
 func _ready() -> void:	#적은 플레이어 시야에 출현하기 전에는 작동하지 않는다.
 	set_physics_process(false)
@@ -43,14 +45,18 @@ func _on_Area2D_area_exited(area):
 	set_process(true)
 	set_physics_process(true)
 	if current_hp <= 0: #마지막 공격을 받고나서 리소스 출력하고 죽음
-		die()
+		gohome()
+
 	
 func Damaged(damage): #적이 공격받을 때 hp감소 & 시각화
 	current_hp -= damage
 	get_node("HPbar").value=int(current_hp)
 
 		
-func die():
+func gohome():
 	#죽을때 animation
 	queue_free()
 	hpbar.hide()
+	count += 1 ##count가 제대로 작동하지 않음
+	print(count)
+	emit_signal("enemies_gohome",count)

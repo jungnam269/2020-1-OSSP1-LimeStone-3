@@ -6,12 +6,12 @@ onready var hpbar = get_node("HPbar") #클릭 시 hp바 출력
 signal mouseon
 signal mouseoff
 signal enemies_gohome(count)
+signal immunedamage(immunity)
 var hp = 100
 var current_hp
 var damage = 20
-export(int) var count = 0
 
-func _ready() -> void:	#적은 플레이어 시야에 출현하기 전에는 작동하지 않는다.
+func _ready():	#적은 플레이어 시야에 출현하기 전에는 작동하지 않는다.
 	set_physics_process(false)
 	current_hp=hp
 	
@@ -55,8 +55,12 @@ func Damaged(damage): #적이 공격받을 때 hp감소 & 시각화
 		
 func gohome():
 	#죽을때 animation
-	queue_free()
-	hpbar.hide()
 	count += 1 ##count가 제대로 작동하지 않음
-	print(count)
 	emit_signal("enemies_gohome",count)
+	print(count)
+	hpbar.hide()
+	immunity += 10
+	emit_signal("immunedamage",immunity)
+	print("checking %s", immunity) #test
+	queue_free()
+

@@ -1,7 +1,6 @@
 extends Actor
 
-signal immunedamage(hp)
-var hp = 100;
+signal immunedamage(immunity)
 
 var laser = preload("res://src/Attack/LaserBeam.tscn")
 var facingRight = true
@@ -43,10 +42,10 @@ func get_direction() -> Vector2: #입력을 통한 방향이동
 	)
 	
 func _on_Immune_area_entered(area):
-	hp -= 10
+	immunity -= 10
 	$AnimatedSprite.set_modulate(Color.red)
-	print("checking %s", hp)
-	emit_signal("immunedamage",hp)
+	print("checking %s", immunity) #test
+	emit_signal("immunedamage",immunity)
 
 
 func _on_Immune_area_exited(area):

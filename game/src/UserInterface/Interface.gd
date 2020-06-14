@@ -18,5 +18,5 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func _on_Player_immunedamage(hp): #get player hp from player's signal 
-	get_node("TextureProgress").value = hp #progress bar is change
+func _on_Player_immunedamage(hp):
+	get_node("TextureProgress").value = hp

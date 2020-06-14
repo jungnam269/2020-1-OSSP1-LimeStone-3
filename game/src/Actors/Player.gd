@@ -2,8 +2,13 @@ extends Actor
 
 signal immunedamage(immunity)
 
+export var fevermode = false
 var laser = preload("res://src/Attack/LaserBeam.tscn")
+var laser2 = preload("res://src/Attack/LaserBeam2.tscn")
 var facingRight = true
+
+func _ready():
+	emit_signal("immunedamage",immunity)
 
 func _process(delta):	#스프라이트 적용과 버튼 입력에 따라 스프라이트를 좌우 반전 시킴
 	
@@ -21,11 +26,17 @@ func _process(delta):	#스프라이트 적용과 버튼 입력에 따라 스프�
 	else:
 		$AnimatedSprite.stop()
 	
-	if Input.is_action_pressed("attack") && get_node("LaserBeam") == null:
-		var laser_shoot_instance = laser.instance()
-		add_child(laser_shoot_instance)
-		laser_shoot_instance.position = $Eyezone.position	
-		$AudioStreamPlayer2D.play()
+	if Input.is_action_pressed("attack") && get_node("LaserBeam") == null :
+		if fevermode == false :
+			var laser_shoot_instance = laser.instance()
+			add_child(laser_shoot_instance)
+			laser_shoot_instance.position = $Eyezone.position	
+			$AudioStreamPlayer2D.play()
+		if fevermode == true : #피버모드일
+			var laser_shoot_instance = laser2.instance()
+			add_child(laser_shoot_instance)
+			laser_shoot_instance.position = $Eyezone.position	
+			$AudioStreamPlayer2D.play()
 		
 	if Input.is_action_just_released("attack") && get_node("LaserBeam") != null:
 		$AudioStreamPlayer2D.stop()

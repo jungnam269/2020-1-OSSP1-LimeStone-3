@@ -35,15 +35,15 @@ __meta__ = {
 }
 
 [node name="QuitAskVbox" type="VBoxContainer" parent="QuitAskRect"]
-margin_left = 382.0
-margin_top = 284.0
-margin_right = 897.0
-margin_bottom = 436.0
+margin_left = 628.0
+margin_top = 348.0
+margin_right = 652.0
+margin_bottom = 371.0
 alignment = 1
 
 [node name="QuitAsktxt" type="Label" parent="QuitAskRect/QuitAskVbox"]
-margin_right = 515.0
-margin_bottom = 44.0
+margin_right = 24.0
+margin_bottom = 1.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.698039, 0.282353, 0.733333, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -52,17 +52,17 @@ custom_constants/shadow_offset_y = 3
 text = "Are you sure about Quit?"
 
 [node name="QuitAskbtY" type="Button" parent="QuitAskRect/QuitAskVbox"]
-margin_top = 48.0
-margin_right = 515.0
-margin_bottom = 98.0
+margin_top = 5.0
+margin_right = 24.0
+margin_bottom = 12.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color_disabled = Color( 0.121569, 0.0352941, 0.0352941, 1 )
 text = "Yes"
 
 [node name="QuitAskbtN" type="Button" parent="QuitAskRect/QuitAskVbox"]
-margin_top = 102.0
-margin_right = 515.0
-margin_bottom = 152.0
+margin_top = 16.0
+margin_right = 24.0
+margin_bottom = 23.0
 custom_fonts/font = ExtResource( 2 )
 text = "No"
 [connection signal="button_up" from="QuitAskRect/QuitAskVbox/QuitAskbtY" to="." method="_on_QuitAskbtY_button_up"]

@@ -65,5 +65,5 @@ margin_right = 579.0
 margin_bottom = 152.0
 custom_fonts/font = ExtResource( 2 )
 text = "No"
-[connection signal="button_up" from="RestartAskRect/RestartVbox/RestartAskbtY" to="." method="_on_RestartAskbtY_button_up"]
-[connection signal="button_up" from="RestartAskRect/RestartVbox/RestartAskbtN" to="." method="_on_RestartAskbtN_button_up"]
+[connection signal="pressed" from="RestartAskRect/RestartVbox/RestartAskbtY" to="." method="_on_RestartAskbtY_pressed"]
+[connection signal="pressed" from="RestartAskRect/RestartVbox/RestartAskbtN" to="." method="_on_RestartAskbtN_pressed"]

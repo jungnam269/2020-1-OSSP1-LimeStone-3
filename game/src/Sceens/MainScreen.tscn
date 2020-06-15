@@ -43,6 +43,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Infoimage" type="CanvasLayer" parent="InfoButton"]
+
 [node name="PlayButton" parent="." instance=ExtResource( 4 )]
 margin_left = 577.61
 margin_top = 520.776

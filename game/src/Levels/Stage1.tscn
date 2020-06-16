@@ -127,7 +127,30 @@ __meta__ = {
 anchor_right = 1.0
 margin_bottom = 16.0
 
-[node name="Immunity_Bar_Label" type="Label" parent="Player/Camera2D/Interface"]
+
+[node name="TextureProgress" type="TextureProgress" parent="Player/Camera2D2/Interface"]
+margin_left = 53.7229
+margin_top = 57.1541
+margin_right = 469.723
+margin_bottom = 143.154
+value = 100.0
+texture_progress = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Player/Camera2D2/Interface"]
+margin_left = 7.72288
+margin_top = 39.154
+margin_right = 423.723
+margin_bottom = 125.154
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Immunity_Bar_Label" type="Label" parent="Player/Camera2D2/Interface"]
+
 margin_left = 56.0
 margin_top = 8.0
 margin_right = 245.0

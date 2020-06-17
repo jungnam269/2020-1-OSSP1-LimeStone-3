@@ -3,6 +3,8 @@ extends Actor
 signal immunedamage(immunity)
 signal infever
 signal outfever
+signal immunity_feverM
+signal immunity_nonfeverM
 
 export var fevermode = false
 var laser = preload("res://src/Attack/LaserBeam.tscn")
@@ -18,15 +20,16 @@ func _process(delta):	#스프라이트 적용과 버튼 입력에 따라 스프�
 	normalphysics(delta)
 	if isattack :
 		Damaged(damage*delta)
-	if immunity > 100 :
+	if immunity >= 100 :
 		fevermode = true
-		get_node("Camera2D/Interface/TextureProgress").set_modulate(Color.red)
+		immunity = 100
+		emit_signal("immunity_feverM")
 		emit_signal("infever")
 		
 	else :
 		fevermode = false
+		emit_signal("immunity_nonfeverM")
 		emit_signal("outfever")
-		get_node("Camera2D/Interface/TextureProgress").set_modulate(Color.white)
 
 func normalphysics(delta):
 	if not facingRight:

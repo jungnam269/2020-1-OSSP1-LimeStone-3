@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://src/Actors/enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprite/en1stand.png" type="Texture" id=2]
@@ -15,12 +15,27 @@
 [ext_resource path="res://assets/2scream.wav" type="AudioStream" id=13]
 [ext_resource path="res://assets/attacking_bar.png" type="Texture" id=14]
 [ext_resource path="res://assets/attacking_progress.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprite/en2stand.png" type="Texture" id=16]
+[ext_resource path="res://assets/sprite/en2walk1.png" type="Texture" id=17]
+[ext_resource path="res://assets/sprite/en2walk4.png" type="Texture" id=18]
+[ext_resource path="res://assets/sprite/en2walk2.png" type="Texture" id=19]
+[ext_resource path="res://assets/sprite/en2walk3.png" type="Texture" id=20]
+[ext_resource path="res://assets/sprite/en2walk5.png" type="Texture" id=21]
+[ext_resource path="res://assets/sprite/en2walk6.png" type="Texture" id=22]
+[ext_resource path="res://assets/sprite/en2walk7.png" type="Texture" id=23]
+[ext_resource path="res://assets/sprite/en2walk8.png" type="Texture" id=24]
+[ext_resource path="res://assets/gohome_resource.png" type="Texture" id=25]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "move",
+"name": "stand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "move1",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ), ExtResource( 11 ) ],
@@ -28,9 +43,19 @@ animations = [ {
 "name": "zapp",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ) ],
 "loop": true,
-"name": "stand",
+"name": "move",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "stand2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "Dead",
 "speed": 5.0
 } ]
 

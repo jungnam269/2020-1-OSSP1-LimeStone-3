@@ -86,12 +86,14 @@ scale = Vector2( 0.6, 0.6 )
 speed = Vector2( 50, 0 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1624, 664 )
+position = Vector2( 2826.28, 526 )
 scale = Vector2( 0.6, 0.6 )
 speed = Vector2( 50, 0 )
+movespeed = 20
+enemymod = 1
 
 [node name="Enemy3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2216, 512 )
+position = Vector2( 1809.58, 643.833 )
 scale = Vector2( 0.6, 0.6 )
 speed = Vector2( 50, 0 )
 
@@ -101,7 +103,7 @@ scale = Vector2( 0.6, 0.6 )
 speed = Vector2( 100, 0 )
 
 [node name="Camera2D2" type="Camera2D" parent="Player"]
-position = Vector2( 843.399, -356.548 )
+position = Vector2( 133.171, -356.548 )
 scale = Vector2( 1.66667, 1.66667 )
 current = true
 
@@ -178,5 +180,11 @@ position = Vector2( -226.667, -960 )
 scale = Vector2( 1.66667, 1.66667 )
 stream = ExtResource( 6 )
 autoplay = true
+[connection signal="changescore" from="Enemy" to="Player/Camera2D2/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy2" to="Player/Camera2D2/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy2" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy3" to="Player/Camera2D2/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy3" to="Player" method="_on_Enemy_enemykilled"]
 [connection signal="immunedamage" from="Player" to="Player/Camera2D2/Interface" method="_on_Player_immunedamage"]
 [connection signal="timeout" from="Player/Camera2D2/Interface/TimerLabel/Timer" to="Player/Camera2D2/Interface/TimerLabel" method="_on_Timer_timeout"]

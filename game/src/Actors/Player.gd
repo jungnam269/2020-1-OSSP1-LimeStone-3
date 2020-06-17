@@ -17,8 +17,9 @@ func _process(delta):	#스프라이트 적용과 버튼 입력에 따라 스프�
 	normalphysics(delta)
 	if isattack :
 		Damaged(damage*delta)
-	if immunity >= 100 :
+	if immunity > 100 :
 		fevermode = true
+		immunity - 10*delta
 
 func normalphysics(delta):
 	if not facingRight:
@@ -63,7 +64,7 @@ func get_direction() -> Vector2: #입력을 통한 방향이동
 
 func Damaged(damage): #적이 공격받을 때 hp감소 & 시각화
 	immunity -= damage
-	get_node("Camera2D2/Interface/TextureProgress").value=int(immunity)
+	updateimmune()
 	
 func _on_Immune_area_entered(area):
 	isattack = true
@@ -75,3 +76,11 @@ func _on_Immune_area_entered(area):
 func _on_Immune_area_exited(area):
 	isattack = false
 	$AnimatedSprite.set_modulate(Color.white)
+
+func _on_Enemy_enemykilled():
+	print("ok?")
+	immunity += 10
+	updateimmune()
+	
+func updateimmune():
+	get_node("Camera2D2/Interface/TextureProgress").value=int(immunity)

@@ -9,8 +9,10 @@ var hp = 100
 var current_hp
 var damage = 50
 var isattack = false
-export var movespeed = 10
+export var movespeed = 5
 export var enemymod = 0
+
+onready var timer = get_node("DamageTimer")
 
 func _ready():	#적은 플레이어 시야에 출현하기 전에는 작동하지 않는다.
 	set_physics_process(false)
@@ -34,7 +36,7 @@ func _process(delta): #기본 상태에서는 stop 에 해당하는 스프라이
 
 func chase(delta):
 	var direction = (get_node('../Player').position - position).normalized()
-	var motion = direction * speed.x * delta
+	var motion = direction * speed.x * delta * movespeed
 	if get_node('../Player').position.x - position.x > 10 || get_node('../Player').position.x - position.x < -10:
 		position += motion
 		
@@ -77,13 +79,26 @@ func Damaged(damage): #적이 공격받을 때 hp감소 & 시각화
 	get_node("HPbar").value=int(current_hp)
 	
 func gohome():
-	#죽을때 animation
 	hpbar.hide()
 	emit_signal("enemykilled")
 	emit_signal("changescore")
+	timer.set_wait_time(1)
+	timer.start()
+	set_physics_process(false)
+	set_process(false)
+	$DamageArea/CollisionShape2D.disabled = true
+	$AnimatedSprite.flip_h = false
+	$AnimatedSprite.play("Dead")
+	yield(timer, "timeout")
 	queue_free()
 	
 func disapeared():
 	hpbar.hide()
 	queue_free()
+	
+	
+func _on_Player_infever():
+	damage = 150
 
+func _on_Player_outfever():
+	damage = 50

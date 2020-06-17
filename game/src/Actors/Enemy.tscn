@@ -33,6 +33,11 @@ animations = [ {
 "name": "stand",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "move",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 21 ) ],
 "loop": true,
 "name": "move1",
@@ -41,11 +46,6 @@ animations = [ {
 "frames": [ ExtResource( 12 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "zapp",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "move",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ) ],
@@ -72,7 +72,7 @@ height = 461.521
 
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 4
 script = ExtResource( 1 )
 speed = Vector2( 50, 1000 )
 gravity = 0.0

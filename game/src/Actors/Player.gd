@@ -20,8 +20,9 @@ func _process(delta):	#스프라이트 적용과 버튼 입력에 따라 스프�
 	normalphysics(delta)
 	if isattack :
 		Damaged(damage*delta)
-	if immunity > 100 :
+	if immunity >= 100 :
 		fevermode = true
+		immunity = 100
 		emit_signal("immunity_feverM")
 		emit_signal("infever")
 		

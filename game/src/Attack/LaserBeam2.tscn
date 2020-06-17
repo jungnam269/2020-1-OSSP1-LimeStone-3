@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/attack_tip.png" type="Texture" id=1]
+[ext_resource path="res://assets/attack_bot.png" type="Texture" id=2]
+[ext_resource path="res://src/Attack/LaserBeam.gd" type="Script" id=3]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="ParticlesMaterial" id=2]
+flag_disable_z = true
+spread = 100.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 38.2749
+
+[node name="LaserBeam" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Begin" type="Sprite" parent="."]
+material = SubResource( 1 )
+position = Vector2( -0.810539, -0.270182 )
+scale = Vector2( 1.56672, 1.38765 )
+texture = ExtResource( 2 )
+
+[node name="Beam" type="Sprite" parent="."]
+modulate = Color( 0.956863, 0.231373, 0.231373, 1 )
+position = Vector2( 0, -0.709225 )
+scale = Vector2( 1, 1.87808 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 0, -11.5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 100, 24.916 )
+
+[node name="End" type="Position2D" parent="."]
+position = Vector2( 100, 0 )
+
+[node name="Particles2D" type="Particles2D" parent="End"]
+modulate = Color( 0.556863, 0.305882, 0.305882, 1 )
+amount = 15
+lifetime = 0.45
+preprocess = 0.25
+process_material = SubResource( 2 )
+texture = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="End"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="End/Area2D"]
+shape = SubResource( 3 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+cast_to = Vector2( 100, 0 )
+collision_mask = 2
+collide_with_bodies = false

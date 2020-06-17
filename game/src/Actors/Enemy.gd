@@ -9,7 +9,7 @@ var hp = 100
 var current_hp
 var damage = 50
 var isattack = false
-export var movespeed = 5
+export var movespeed = 3
 export var enemymod = 0
 
 onready var timer = get_node("DamageTimer")

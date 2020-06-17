@@ -20,13 +20,13 @@ func _process(delta):	#스프라이트 적용과 버튼 입력에 따라 스프�
 		Damaged(damage*delta)
 	if immunity > 100 :
 		fevermode = true
-		get_node("Camera2D2/Interface/TextureProgress").set_modulate(Color.red)
+		get_node("Camera2D/Interface/TextureProgress").set_modulate(Color.red)
 		emit_signal("infever")
 		
 	else :
 		fevermode = false
 		emit_signal("outfever")
-		get_node("Camera2D2/Interface/TextureProgress").set_modulate(Color.white)
+		get_node("Camera2D/Interface/TextureProgress").set_modulate(Color.white)
 
 func normalphysics(delta):
 	if not facingRight:
@@ -90,4 +90,4 @@ func _on_Enemy_enemykilled():
 	updateimmune()
 	
 func updateimmune():
-	get_node("Camera2D2/Interface/TextureProgress").value=int(immunity)
+	get_node("Camera2D/Interface/TextureProgress").value=int(immunity)

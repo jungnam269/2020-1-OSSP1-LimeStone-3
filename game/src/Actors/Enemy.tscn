@@ -92,7 +92,6 @@ shape = SubResource( 4 )
 stream = ExtResource( 13 )
 
 [node name="HPbar" type="TextureProgress" parent="."]
-visible = false
 margin_left = -180.0
 margin_top = -570.0
 margin_right = 178.0
@@ -108,7 +107,5 @@ nine_patch_stretch = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="DamageTimer" type="Timer" parent="."]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]

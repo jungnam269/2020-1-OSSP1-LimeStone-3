@@ -7,7 +7,7 @@ func _process(delta):
 	if s == 0 :
 		get_tree().change_scene("res://src/Sceens/EndingScreen.tscn")
 
-	else :
+	else
 		set_text(str(s))
 		
 		pass

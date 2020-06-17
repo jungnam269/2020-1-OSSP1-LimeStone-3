@@ -16,7 +16,7 @@ anchor_right = 0.667
 anchor_bottom = 0.667
 margin_right = -0.640137
 margin_bottom = -0.359985
-rect_min_size = Vector2( 1280, 720 )
+rect_min_size = Vector2( 1280, 770 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

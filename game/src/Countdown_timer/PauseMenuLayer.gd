@@ -13,11 +13,7 @@ func _input(event):
 		visible = new_pause_state
 
 
-func _on_Pausegameinbtn_pressed():
-	print("Button Pressed")
-	var new_pause_state = not get_tree().paused
-	get_tree().paused = new_pause_state
-	visible = new_pause_state
+
 	
 
 func _on_Resumebtn_pressed():
@@ -34,3 +30,10 @@ func _on_Exitbtn_button_up():
 func _on_Restartbtn_button_up():
 	get_tree().change_scene("res://src/Countdown_timer/RestartAsk.tscn")
 
+
+
+func _on_Pausebtn_button_up():
+	print("Button Pressed")
+	var new_pause_state = not get_tree().paused
+	get_tree().paused = new_pause_state
+	visible = new_pause_state

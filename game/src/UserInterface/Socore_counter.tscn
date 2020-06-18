@@ -24,7 +24,7 @@ margin_top = -12.7307
 margin_right = 96.147
 margin_bottom = 92.269
 theme = ExtResource( 1 )
-text = "20200524 점"
+text = "0"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false

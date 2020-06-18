@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/aimcursur.png-447b3d433c9f021acb518e975fef3f9f.stex"
+path="res://.import/attacking_progress.png-8beba1d3d3582f73c57bc9e7b45d4b4b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://aimcursur.png"
-dest_files=[ "res://.import/aimcursur.png-447b3d433c9f021acb518e975fef3f9f.stex" ]
+source_file="res://assets/attacking_progress.png"
+dest_files=[ "res://.import/attacking_progress.png-8beba1d3d3582f73c57bc9e7b45d4b4b.stex" ]
 
 [params]
 

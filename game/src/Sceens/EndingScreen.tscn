@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/UserInterface/EndingButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/ending1_background.png" type="Texture" id=2]
@@ -11,13 +11,13 @@
 [node name="EndingScreen" type="Control"]
 anchor_right = 0.667
 anchor_bottom = 0.667
-margin_right = -0.640137
-margin_bottom = -0.359985
+margin_right = 426.24
+margin_bottom = 256.41
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="배경 대체" type="TextureRect" parent="."]
+[node name="EndingBackground" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 2 )

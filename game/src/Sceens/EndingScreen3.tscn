@@ -10,8 +10,8 @@
 [node name="EndingScreen3" type="Control"]
 anchor_right = 0.667
 anchor_bottom = 0.667
-margin_right = -0.640137
-margin_bottom = -0.359985
+margin_right = 426.24
+margin_bottom = 256.41
 __meta__ = {
 "_edit_use_anchors_": false
 }

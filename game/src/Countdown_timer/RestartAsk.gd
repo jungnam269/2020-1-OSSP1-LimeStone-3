@@ -5,7 +5,7 @@ func _ready():
 	pass 
 
 func _on_RestartAskbtY_button_up()-> void:
-	get_tree().change_scene("res://src/Sceens/MainScreen.tscn")
+	get_tree().change_scene("res://src/Screens/MainScreen.tscn")
 
 
 func _on_RestartAskbtN_button_up() -> void:

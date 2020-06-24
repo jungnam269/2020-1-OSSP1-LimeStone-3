@@ -123,7 +123,7 @@ tile_data = PoolIntArray( 524288, 0, 0, 524289, 0, 0, 589824, 0, 0, 589825, 0, 0
 position = Vector2( 128, 616 )
 scale = Vector2( 0.6, 0.6 )
 collision_mask = 8
-speed = Vector2( 100, 0 )
+speed = Vector2( 150, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( -213.333, -1026.67 )
@@ -305,57 +305,62 @@ volume_db = -3.0
 autoplay = true
 
 [node name="Enemy" parent="." instance=ExtResource( 9 )]
-position = Vector2( -2675.32, 630.391 )
+position = Vector2( -5245.22, 728.114 )
 scale = Vector2( 0.6, 0.6 )
+movespeed = 10
 enemymod = 1
 
 [node name="Enemy2" parent="." instance=ExtResource( 9 )]
-position = Vector2( -2052.97, 691.2 )
+position = Vector2( -3801.26, 691.974 )
 scale = Vector2( 0.6, 0.6 )
+movespeed = 10
 enemymod = 1
 
 [node name="Enemy3" parent="." instance=ExtResource( 9 )]
-position = Vector2( -1534.27, 662.4 )
+position = Vector2( -2451.41, 633.6 )
 scale = Vector2( 0.6, 0.6 )
+movespeed = 10
 enemymod = 1
 
 [node name="Enemy4" parent="." instance=ExtResource( 9 )]
-position = Vector2( -945.22, 691.2 )
+position = Vector2( -1308.25, 683.86 )
 scale = Vector2( 0.6, 0.6 )
+movespeed = 7
 enemymod = 1
 
 [node name="Enemy5" parent="." instance=ExtResource( 9 )]
-position = Vector2( -288.098, 564.831 )
+position = Vector2( -288.098, 662.4 )
 scale = Vector2( 0.6, 0.6 )
+movespeed = 8
 enemymod = 1
 
 [node name="Enemy6" parent="." instance=ExtResource( 9 )]
-position = Vector2( 4428.71, 691.2 )
+position = Vector2( 5508.26, 683.86 )
 scale = Vector2( 0.6, 0.6 )
 movespeed = 1
 
 [node name="Enemy7" parent="." instance=ExtResource( 9 )]
-position = Vector2( 4126.33, 720 )
+position = Vector2( 4823.74, 720 )
 scale = Vector2( 0.6, 0.6 )
 movespeed = 1
 
 [node name="Enemy8" parent="." instance=ExtResource( 9 )]
-position = Vector2( 2161, 775 )
+position = Vector2( 2839.3, 616 )
 scale = Vector2( 0.6, 0.6 )
 movespeed = 1
 
 [node name="Enemy9" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1755.9, 720 )
+position = Vector2( 2281.34, 624.114 )
 scale = Vector2( 0.6, 0.6 )
 movespeed = 1
 
 [node name="Enemy10" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1649.1, 627.171 )
+position = Vector2( 1123.51, 671.287 )
 scale = Vector2( 0.6, 0.6 )
 movespeed = 2
 
 [node name="Enemy11" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1984, 633.6 )
+position = Vector2( 3646.31, 700.088 )
 scale = Vector2( 0.6, 0.6 )
 movespeed = 2
 
@@ -365,12 +370,12 @@ scale = Vector2( 0.6, 0.6 )
 movespeed = 1
 
 [node name="Enemy13" parent="." instance=ExtResource( 9 )]
-position = Vector2( 4735.76, 720 )
+position = Vector2( 6971.28, 633.6 )
 scale = Vector2( 0.6, 0.6 )
 movespeed = 1
 
 [node name="Enemy14" parent="." instance=ExtResource( 9 )]
-position = Vector2( 4842.56, 544.145 )
+position = Vector2( 6266.03, 630.391 )
 scale = Vector2( 0.6, 0.6 )
 movespeed = 0
 
@@ -381,7 +386,35 @@ movespeed = 1
 [connection signal="immunity_feverM" from="Player" to="Player/Camera2D/Interface" method="_on_Player_immunity_feverM"]
 [connection signal="immunity_nonfeverM" from="Player" to="Player/Camera2D/Interface" method="_on_Player_immunity_nonfeverM"]
 [connection signal="infever" from="Player" to="Enemy" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy10" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy11" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy12" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy13" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy14" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy15" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy2" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy3" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy4" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy5" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy6" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy7" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy8" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy9" method="_on_Player_infever"]
 [connection signal="outfever" from="Player" to="Enemy" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy10" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy11" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy12" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy13" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy14" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy15" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy2" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy3" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy4" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy5" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy6" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy7" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy8" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy9" method="_on_Player_outfever"]
 [connection signal="timeout" from="Player/Camera2D/Interface/TimerLabel/Timer" to="Player/Camera2D/Interface/TimerLabel" method="_on_Timer_timeout"]
 [connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/Pausebtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Pausebtn_button_up"]
 [connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Resumebtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Resumebtn_button_up"]

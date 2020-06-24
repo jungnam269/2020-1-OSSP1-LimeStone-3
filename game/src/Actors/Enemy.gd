@@ -41,8 +41,9 @@ func chase(delta):
 		position += motion
 		
 func passby(delta):
-	var motion = speed.x * delta
-	position.x += motion
+	var direction = (get_node('../Player').position).normalized()
+	var motion = direction * speed.x * delta
+	position += motion
 	
 func movement():
 	if get_node('../Player').position.x - position.x > 0: #플레이어보다 왼쪽일때

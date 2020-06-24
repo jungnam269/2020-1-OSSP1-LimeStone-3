@@ -26,27 +26,16 @@
 [ext_resource path="res://assets/sprite/en2walk8.png" type="Texture" id=24]
 [ext_resource path="res://assets/gohome_resource.png" type="Texture" id=25]
 
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "stand",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "move",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 21 ) ],
 "loop": true,
 "name": "move1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 25 ), ExtResource( 25 ) ],
 "loop": true,
-"name": "zapp",
+"name": "Dead",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ) ],
@@ -54,9 +43,19 @@ animations = [ {
 "name": "stand2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 25 ), ExtResource( 25 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 11 ) ],
 "loop": true,
-"name": "Dead",
+"name": "zapp",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "move",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "stand",
 "speed": 5.0
 } ]
 
@@ -90,15 +89,9 @@ animation = "stand"
 position = Vector2( 0, -151.9 )
 shape = SubResource( 2 )
 
-[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
-position = Vector2( 3.70126, -250.734 )
-scale = Vector2( 10.622, 26.0734 )
-process_parent = true
-physics_process_parent = true
-
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 8
 
 [node name="Head" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 2.39166, -416.148 )
@@ -106,7 +99,7 @@ rotation = 1.57079
 shape = SubResource( 3 )
 
 [node name="DamageArea" type="Area2D" parent="."]
-collision_layer = 4
+collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]

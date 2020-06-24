@@ -14,6 +14,3 @@ func _on_Player_immunity_nonfeverM():
 	get_node("Immunity_gauge_feverM").hide()
 	$AnimatedSprite.play("def")
 
-
-func _on_Enemy_enemykilled():
-	pass # Replace with function body.

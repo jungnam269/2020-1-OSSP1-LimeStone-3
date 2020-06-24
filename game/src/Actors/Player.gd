@@ -35,7 +35,7 @@ func _process(delta):	#스프라이트 적용과 버튼 입력에 따라 스프�
 	if gauge < 100 && attackon == false :
 		gauge += 2.5
 	if attackon :
-		gauge -= 2.5
+		gauge -= 1.5
 	updategauge()
 
 func normalphysics(delta):

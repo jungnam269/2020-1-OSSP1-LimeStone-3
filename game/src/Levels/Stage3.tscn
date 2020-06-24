@@ -8,7 +8,7 @@
 [ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/UserInterface/Socore_counter.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/UserInterface/Top_Bar.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/topbar.png" type="Texture" id=9]
+[ext_resource path="res://src/Actors/Enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/Scorelabel_theme.tres" type="Theme" id=10]
 [ext_resource path="res://assets/Timer_theme.tres" type="Theme" id=11]
 [ext_resource path="res://src/UserInterface/Interface.gd" type="Script" id=12]
@@ -27,10 +27,10 @@
 [ext_resource path="res://assets/pausebt.png" type="Texture" id=25]
 [ext_resource path="res://assets/resumebarbt.png" type="Texture" id=26]
 
-[sub_resource type="ConvexPolygonShape2D" id=5]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
 
-[sub_resource type="TileSet" id=6]
+[sub_resource type="TileSet" id=2]
 0/name = "Stage3 tilemap - mainstreet Lime.png 0"
 0/texture = ExtResource( 4 )
 0/tex_offset = Vector2( 0, 0 )
@@ -41,19 +41,19 @@ points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 5 )
+0/shape = SubResource( 1 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 5 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [  ],
 "loop": true,
@@ -112,7 +112,7 @@ tile_data = PoolIntArray( 524288, 0, 0, 524289, 0, 1, 524290, 0, 1, 524291, 0, 1
 
 [node name="Collision" type="TileMap" parent="."]
 visible = false
-tile_set = SubResource( 6 )
+tile_set = SubResource( 2 )
 collision_layer = 4
 collision_mask = 3
 format = 1
@@ -145,18 +145,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Topbar" type="NinePatchRect" parent="Player/Camera2D/Interface" instance=ExtResource( 8 )]
+[node name="Topbar" parent="Player/Camera2D/Interface" instance=ExtResource( 8 )]
 anchor_right = 1.0
 margin_bottom = 16.0
-rect_min_size = Vector2( 1280, 130 )
-texture = ExtResource( 9 )
-patch_margin_left = 8
-patch_margin_top = 8
-patch_margin_right = 8
-patch_margin_bottom = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TextureProgress" type="TextureProgress" parent="Player/Camera2D/Interface"]
 margin_left = 46.3669
@@ -190,7 +181,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player/Camera2D/Interface"]
 position = Vector2( 208, 80 )
-frames = SubResource( 4 )
+frames = SubResource( 3 )
 animation = "def"
 
 [node name="Immunity_Bar_Label" type="Label" parent="Player/Camera2D/Interface"]
@@ -204,18 +195,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Score_counter" type="NinePatchRect" parent="Player/Camera2D/Interface" instance=ExtResource( 7 )]
+[node name="Score_counter" parent="Player/Camera2D/Interface" instance=ExtResource( 7 )]
 margin_left = 824.0
 margin_right = 1124.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 300, 100 )
-patch_margin_left = 8
-patch_margin_top = 8
-patch_margin_right = 8
-patch_margin_bottom = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TimerLabel" type="RichTextLabel" parent="Player/Camera2D/Interface"]
 margin_left = 584.0
@@ -345,6 +327,85 @@ margin_right = 222.0
 margin_bottom = 299.0
 icon = ExtResource( 23 )
 flat = true
+
+[node name="Enemy" parent="." instance=ExtResource( 9 )]
+position = Vector2( -2675.32, 630.391 )
+scale = Vector2( 0.6, 0.6 )
+enemymod = 1
+
+[node name="Enemy2" parent="." instance=ExtResource( 9 )]
+position = Vector2( -2052.97, 691.2 )
+scale = Vector2( 0.6, 0.6 )
+enemymod = 1
+
+[node name="Enemy3" parent="." instance=ExtResource( 9 )]
+position = Vector2( -1534.27, 662.4 )
+scale = Vector2( 0.6, 0.6 )
+enemymod = 1
+
+[node name="Enemy4" parent="." instance=ExtResource( 9 )]
+position = Vector2( -945.22, 691.2 )
+scale = Vector2( 0.6, 0.6 )
+enemymod = 1
+
+[node name="Enemy5" parent="." instance=ExtResource( 9 )]
+position = Vector2( -288.098, 564.831 )
+scale = Vector2( 0.6, 0.6 )
+enemymod = 1
+
+[node name="Enemy6" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4428.71, 691.2 )
+scale = Vector2( 0.6, 0.6 )
+movespeed = 1
+
+[node name="Enemy7" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4126.33, 720 )
+scale = Vector2( 0.6, 0.6 )
+movespeed = 1
+
+[node name="Enemy8" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2161, 775 )
+scale = Vector2( 0.6, 0.6 )
+movespeed = 1
+
+[node name="Enemy9" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1755.9, 720 )
+scale = Vector2( 0.6, 0.6 )
+movespeed = 1
+
+[node name="Enemy10" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1649.1, 627.171 )
+scale = Vector2( 0.6, 0.6 )
+movespeed = 2
+
+[node name="Enemy11" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1984, 633.6 )
+scale = Vector2( 0.6, 0.6 )
+movespeed = 2
+
+[node name="Enemy12" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4234.33, 572.945 )
+scale = Vector2( 0.6, 0.6 )
+movespeed = 1
+
+[node name="Enemy13" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4735.76, 720 )
+scale = Vector2( 0.6, 0.6 )
+movespeed = 1
+
+[node name="Enemy14" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4842.56, 544.145 )
+scale = Vector2( 0.6, 0.6 )
+movespeed = 0
+
+[node name="Enemy15" parent="." instance=ExtResource( 9 )]
+position = Vector2( 3174.17, 691.2 )
+scale = Vector2( 0.6, 0.6 )
+movespeed = 1
+[connection signal="immunity_feverM" from="Player" to="Player/Camera2D/Interface" method="_on_Player_immunity_feverM"]
+[connection signal="immunity_nonfeverM" from="Player" to="Player/Camera2D/Interface" method="_on_Player_immunity_nonfeverM"]
+[connection signal="infever" from="Player" to="Enemy" method="_on_Player_infever"]
+[connection signal="outfever" from="Player" to="Enemy" method="_on_Player_outfever"]
 [connection signal="timeout" from="Player/Camera2D/Interface/TimerLabel/Timer" to="Player/Camera2D/Interface/TimerLabel" method="_on_Timer_timeout"]
 [connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/Pausebtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Pausebtn_button_up"]
 [connection signal="pressed" from="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/HBoxContainer/BgmOnOffbtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_BgmOnOffbtn_pressed"]
@@ -352,3 +413,33 @@ flat = true
 [connection signal="pressed" from="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Resumebtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Resumebtn_pressed"]
 [connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Restartbtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Restartbtn_button_up"]
 [connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Exitbtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Exitbtn_button_up"]
+[connection signal="changescore" from="Enemy" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy2" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy2" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy3" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy3" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy4" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy4" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy5" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy5" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy6" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy6" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy7" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy7" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy8" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy8" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy9" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy9" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy10" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy10" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy11" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy11" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy12" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy12" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy13" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy13" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy14" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy14" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy15" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy15" to="Player" method="_on_Enemy_enemykilled"]

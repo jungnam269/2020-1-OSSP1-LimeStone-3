@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/Stage1 background - street.png" type="Texture" id=1]
 [ext_resource path="res://assets/Stage1 tilemap - street.png" type="Texture" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://src/Objects/Portal1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/Levels/Stage2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/1to2.png" type="Texture" id=10]
+[ext_resource path="res://src/Levels/StageSoundButton.gd" type="Script" id=11]
+[ext_resource path="res://assets/bgmbt.png" type="Texture" id=12]
 
 [sub_resource type="TileSet" id=1]
 0/name = "stage1"
@@ -169,9 +171,21 @@ current = true
 margin_left = -1.06727
 margin_right = -1.06727
 
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Player"]
-position = Vector2( -226.667, -960 )
-scale = Vector2( 1.66667, 1.66667 )
+[node name="StageSoundButton" type="Button" parent="Player/Camera2D"]
+margin_left = 1164.0
+margin_top = 130.0
+margin_right = 1259.0
+margin_bottom = 225.0
+icon = ExtResource( 12 )
+flat = true
+expand_icon = true
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Player/Camera2D/StageSoundButton"]
+position = Vector2( 31.9997, 71.9999 )
 stream = ExtResource( 6 )
 volume_db = -3.0
 autoplay = true
@@ -197,3 +211,4 @@ next_scene = ExtResource( 9 )
 [connection signal="immunity_nonfeverM" from="Player" to="Player/Camera2D/Interface" method="_on_Player_immunity_nonfeverM"]
 [connection signal="infever" from="Player" to="Enemy" method="_on_Player_infever"]
 [connection signal="outfever" from="Player" to="Enemy" method="_on_Player_outfever"]
+[connection signal="button_up" from="Player/Camera2D/StageSoundButton" to="Player/Camera2D/StageSoundButton" method="_on_StageSoundButton_button_up"]

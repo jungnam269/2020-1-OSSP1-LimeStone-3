@@ -47,11 +47,11 @@ icon = ExtResource( 4 )
 flat = true
 
 [node name="Ed2TextLabel" type="RichTextLabel" parent="."]
-margin_left = 455.0
-margin_top = 144.0
-margin_right = 825.0
-margin_bottom = 197.0
-rect_scale = Vector2( 1.1, 1.1 )
+margin_left = 421.92
+margin_top = 51.9729
+margin_right = 791.92
+margin_bottom = 104.973
+rect_scale = Vector2( 1.2, 1.2 )
 theme = ExtResource( 6 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "Ed2. 생활 속 거리두기"

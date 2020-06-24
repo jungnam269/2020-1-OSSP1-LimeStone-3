@@ -173,6 +173,7 @@ margin_right = -1.06727
 position = Vector2( -226.667, -960 )
 scale = Vector2( 1.66667, 1.66667 )
 stream = ExtResource( 6 )
+volume_db = -3.0
 autoplay = true
 
 [node name="Portal1" parent="." instance=ExtResource( 8 )]

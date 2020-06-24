@@ -1,6 +1,6 @@
 extends RichTextLabel
 
-var s = 30
+var s = 50
 
 func _process(delta):
 	

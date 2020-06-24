@@ -24,6 +24,8 @@ func _physics_process(delta: float) -> void:	#화면에 출현한 적은 플레�
 			chase(delta)
 		if enemymod == 1:
 			passby(delta)
+		if enemymod == 2:
+			chase(delta)
 
 func _process(delta): #기본 상태에서는 stop 에 해당하는 스프라이트를 재생
 	if isattack == false:
@@ -31,6 +33,8 @@ func _process(delta): #기본 상태에서는 stop 에 해당하는 스프라이
 			movement()
 		if enemymod == 1:
 			movement2()
+		if enemymod == 2:
+			movement3()
 	if isattack == true:
 		Damaged(damage*delta)
 
@@ -58,6 +62,17 @@ func movement():
 func movement2():
 	$AnimatedSprite.play("move1")
 	$AnimatedSprite.flip_h = false	#스프라이트를 그대로 재생
+
+func movement3():
+	if get_node('../Player').position.x - position.x > 0: #플레이어보다 왼쪽일때
+		$AnimatedSprite.play("move3")
+		$AnimatedSprite.flip_h = false	#스프라이트를 그대로 재생
+	elif get_node('../Player').position.x - position.x < 0: #플레이어보다 오른쪽일대
+		$AnimatedSprite.play("move3")
+		$AnimatedSprite.flip_h = true #스프라이트를 반대로 뒤집어 재생
+		
+	else:
+		$AnimatedSprite.play("stand3")
 
 func _on_Area2D_area_entered(area):
 	$HPbar.visible = true

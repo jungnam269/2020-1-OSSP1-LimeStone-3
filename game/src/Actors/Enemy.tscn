@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://src/Actors/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprite/en1stand.png" type="Texture" id=2]
@@ -25,9 +25,28 @@
 [ext_resource path="res://assets/sprite/en2walk7.png" type="Texture" id=23]
 [ext_resource path="res://assets/sprite/en2walk8.png" type="Texture" id=24]
 [ext_resource path="res://assets/gohome_resource.png" type="Texture" id=25]
+[ext_resource path="res://assets/sprite/en3walk1.png" type="Texture" id=26]
+[ext_resource path="res://assets/sprite/en3walk2.png" type="Texture" id=27]
+[ext_resource path="res://assets/sprite/en3walk3.png" type="Texture" id=28]
+[ext_resource path="res://assets/sprite/en3walk4.png" type="Texture" id=29]
+[ext_resource path="res://assets/sprite/en3walk5.png" type="Texture" id=30]
+[ext_resource path="res://assets/sprite/en3walk6.png" type="Texture" id=31]
+[ext_resource path="res://assets/sprite/en3walk7.png" type="Texture" id=32]
+[ext_resource path="res://assets/sprite/en3walk8.png" type="Texture" id=33]
+[ext_resource path="res://assets/sprite/en3stand.png" type="Texture" id=34]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "move",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 21 ) ],
 "loop": true,
 "name": "move1",
@@ -38,24 +57,24 @@ animations = [ {
 "name": "Dead",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ) ],
-"loop": true,
-"name": "stand2",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 12 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "zapp",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 16 ) ],
 "loop": true,
-"name": "move",
+"name": "stand2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 28 ), ExtResource( 27 ), ExtResource( 30 ), ExtResource( 33 ), ExtResource( 32 ), ExtResource( 31 ), ExtResource( 26 ), ExtResource( 29 ) ],
 "loop": true,
-"name": "stand",
+"name": "move3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 34 ) ],
+"loop": true,
+"name": "stand3",
 "speed": 5.0
 } ]
 
@@ -72,7 +91,7 @@ height = 461.521
 
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 2
-collision_mask = 4
+collision_mask = 0
 script = ExtResource( 1 )
 speed = Vector2( 50, 1000 )
 gravity = 0.0

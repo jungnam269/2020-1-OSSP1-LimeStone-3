@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/infotxt_2.png-414314476794de3cfb7fd4d79765deb0.stex"
+path="res://.import/en3stand.png-285e26826a43ada5600914e3288107ae.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/infotxt_2.png"
-dest_files=[ "res://.import/infotxt_2.png-414314476794de3cfb7fd4d79765deb0.stex" ]
+source_file="res://assets/sprite/en3stand.png"
+dest_files=[ "res://.import/en3stand.png-285e26826a43ada5600914e3288107ae.stex" ]
 
 [params]
 

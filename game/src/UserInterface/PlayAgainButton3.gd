@@ -5,4 +5,4 @@ extends Button
 
 
 func _on_PlayAgainButton3_button_up() -> void:
-	get_tree().change_scene("res://Sceens/MainScren.tscn")
+	get_tree().change_scene("res://src/Sceens/MainScren.tscn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/Stage3 background - mainstreet Lime.png" type="Texture" id=1]
 [ext_resource path="res://src/Levels/Stage3.tres" type="TileSet" id=2]
@@ -8,11 +8,24 @@
 [ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/UserInterface/Socore_counter.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/UserInterface/Top_Bar.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/UserInterface/Immunity_Bar.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/Actors/Enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/Scorelabel_theme.tres" type="Theme" id=10]
 [ext_resource path="res://assets/Timer_theme.tres" type="Theme" id=11]
 [ext_resource path="res://src/UserInterface/Interface.gd" type="Script" id=12]
-[ext_resource path="res://src/UserInterface/Immunity_Bar.gd" type="Script" id=13]
+[ext_resource path="res://assets/Immunity_gauge_feverMeff2.png" type="Texture" id=13]
+[ext_resource path="res://src/Countdown_timer/PauseMenuLayer.gd" type="Script" id=14]
+[ext_resource path="res://src/Countdown_timer/BgmOnOffbtn.gd" type="Script" id=15]
+[ext_resource path="res://assets/bgmbt.png" type="Texture" id=16]
+[ext_resource path="res://assets/Immunity_gauge_feverMeff1.png" type="Texture" id=17]
+[ext_resource path="res://assets/Immunity_gauge_feverM.png" type="Texture" id=18]
+[ext_resource path="res://assets/Immunity_gauge_bg.png" type="Texture" id=19]
+[ext_resource path="res://assets/Immunity_gauge_fill.png" type="Texture" id=20]
+[ext_resource path="res://assets/restartbarbt.png" type="Texture" id=21]
+[ext_resource path="res://assets/volumncontrolbt.png" type="Texture" id=22]
+[ext_resource path="res://assets/exitbt.png" type="Texture" id=23]
+[ext_resource path="res://assets/Pausemenu.png" type="Texture" id=24]
+[ext_resource path="res://assets/pausebt.png" type="Texture" id=25]
+[ext_resource path="res://assets/resumebarbt.png" type="Texture" id=26]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
@@ -39,6 +52,19 @@ points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "def",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "fever",
+"speed": 2.0
+} ]
 
 [node name="Stage3" type="Node2D"]
 __meta__ = {
@@ -123,6 +149,41 @@ __meta__ = {
 anchor_right = 1.0
 margin_bottom = 16.0
 
+[node name="TextureProgress" type="TextureProgress" parent="Player/Camera2D/Interface"]
+margin_left = 46.3669
+margin_top = 56.0465
+margin_right = 375.367
+margin_bottom = 106.047
+value = 50.0
+texture_progress = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Immunity_gauge_feverM" type="TextureRect" parent="Player/Camera2D/Interface"]
+visible = false
+margin_top = 37.0
+margin_right = 416.0
+margin_bottom = 123.0
+texture = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Immunity_gauge" type="TextureRect" parent="Player/Camera2D/Interface"]
+margin_top = 37.2693
+margin_right = 416.0
+margin_bottom = 123.269
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Player/Camera2D/Interface"]
+position = Vector2( 208, 80 )
+frames = SubResource( 3 )
+animation = "def"
+
 [node name="Immunity_Bar_Label" type="Label" parent="Player/Camera2D/Interface"]
 margin_left = 56.0
 margin_top = 8.0
@@ -133,20 +194,6 @@ text = "면역 게이지"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Immunity bar" type="VBoxContainer" parent="Player/Camera2D/Interface"]
-margin_left = 86.9806
-margin_top = 55.2232
-margin_right = 502.981
-margin_bottom = 141.223
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Bar" parent="Player/Camera2D/Interface/Immunity bar" instance=ExtResource( 9 )]
-margin_right = 416.0
-margin_bottom = 50.0
-script = ExtResource( 13 )
 
 [node name="Score_counter" parent="Player/Camera2D/Interface" instance=ExtResource( 7 )]
 margin_left = 824.0
@@ -167,4 +214,232 @@ __meta__ = {
 
 [node name="Timer" type="Timer" parent="Player/Camera2D/Interface/TimerLabel"]
 autostart = true
+
+[node name="Pausebtningamelayer" type="CanvasLayer" parent="Player/Camera2D/Interface"]
+
+[node name="Pausebtn" type="TextureButton" parent="Player/Camera2D/Interface/Pausebtningamelayer"]
+margin_left = 1164.0
+margin_top = 16.0
+margin_right = 1256.0
+margin_bottom = 109.0
+texture_normal = ExtResource( 25 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseMenuLayer" type="Control" parent="Player/Camera2D/Interface/Pausebtningamelayer"]
+pause_mode = 2
+margin_right = 1280.0
+margin_bottom = 720.0
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackOverlay" type="ColorRect" parent="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer"]
+anchor_right = 1.008
+anchor_bottom = 1.0
+margin_right = -12.24
+margin_bottom = 55.0
+color = Color( 0.0666667, 0.054902, 0.0627451, 0.745098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pause메뉴화면" type="Sprite" parent="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay"]
+pause_mode = 2
+position = Vector2( 638.236, 382.482 )
+scale = Vector2( 0.953547, 0.851991 )
+texture = ExtResource( 24 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면"]
+anchor_left = 0.195
+anchor_top = 0.181
+anchor_right = 0.899
+anchor_bottom = 0.429
+margin_left = -240.75
+margin_top = -297.202
+margin_right = -250.55
+margin_bottom = -303.418
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+custom_constants/separation = 0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BgmOnOffbtn" type="TextureButton" parent="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/HBoxContainer"]
+margin_right = 142.0
+margin_bottom = 153.0
+size_flags_horizontal = 12
+size_flags_vertical = 15
+size_flags_stretch_ratio = 3.75
+texture_normal = ExtResource( 16 )
+script = ExtResource( 15 )
+
+[node name="VolumnControlbtn" type="TextureButton" parent="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/HBoxContainer"]
+margin_left = 142.0
+margin_right = 307.0
+margin_bottom = 153.0
+size_flags_horizontal = 12
+size_flags_vertical = 12
+texture_normal = ExtResource( 22 )
+stretch_mode = 2
+
+[node name="PauseControlMenu" type="VBoxContainer" parent="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면"]
+pause_mode = 2
+anchor_left = -0.772
+anchor_top = -0.149
+anchor_right = 2.066
+anchor_bottom = 1.198
+margin_left = 238.4
+margin_top = 51.658
+margin_right = -816.7
+margin_bottom = -514.116
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resumebtn" type="Button" parent="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu"]
+margin_right = 222.0
+margin_bottom = 97.0
+icon = ExtResource( 26 )
+flat = true
+
+[node name="Restartbtn" type="Button" parent="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu"]
+margin_top = 101.0
+margin_right = 222.0
+margin_bottom = 198.0
+icon = ExtResource( 21 )
+flat = true
+
+[node name="Exitbtn" type="Button" parent="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu"]
+margin_top = 202.0
+margin_right = 222.0
+margin_bottom = 299.0
+icon = ExtResource( 23 )
+flat = true
+
+[node name="Enemy" parent="." instance=ExtResource( 9 )]
+position = Vector2( -2675.32, 630.391 )
+scale = Vector2( 0.6, 0.6 )
+enemymod = 1
+
+[node name="Enemy2" parent="." instance=ExtResource( 9 )]
+position = Vector2( -2052.97, 691.2 )
+scale = Vector2( 0.6, 0.6 )
+enemymod = 1
+
+[node name="Enemy3" parent="." instance=ExtResource( 9 )]
+position = Vector2( -1534.27, 662.4 )
+scale = Vector2( 0.6, 0.6 )
+enemymod = 1
+
+[node name="Enemy4" parent="." instance=ExtResource( 9 )]
+position = Vector2( -945.22, 691.2 )
+scale = Vector2( 0.6, 0.6 )
+enemymod = 1
+
+[node name="Enemy5" parent="." instance=ExtResource( 9 )]
+position = Vector2( -288.098, 564.831 )
+scale = Vector2( 0.6, 0.6 )
+enemymod = 1
+
+[node name="Enemy6" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4428.71, 691.2 )
+scale = Vector2( 0.6, 0.6 )
+movespeed = 1
+
+[node name="Enemy7" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4126.33, 720 )
+scale = Vector2( 0.6, 0.6 )
+movespeed = 1
+
+[node name="Enemy8" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2161, 775 )
+scale = Vector2( 0.6, 0.6 )
+movespeed = 1
+
+[node name="Enemy9" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1755.9, 720 )
+scale = Vector2( 0.6, 0.6 )
+movespeed = 1
+
+[node name="Enemy10" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1649.1, 627.171 )
+scale = Vector2( 0.6, 0.6 )
+movespeed = 2
+
+[node name="Enemy11" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1984, 633.6 )
+scale = Vector2( 0.6, 0.6 )
+movespeed = 2
+
+[node name="Enemy12" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4234.33, 572.945 )
+scale = Vector2( 0.6, 0.6 )
+movespeed = 1
+
+[node name="Enemy13" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4735.76, 720 )
+scale = Vector2( 0.6, 0.6 )
+movespeed = 1
+
+[node name="Enemy14" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4842.56, 544.145 )
+scale = Vector2( 0.6, 0.6 )
+movespeed = 0
+
+[node name="Enemy15" parent="." instance=ExtResource( 9 )]
+position = Vector2( 3174.17, 691.2 )
+scale = Vector2( 0.6, 0.6 )
+movespeed = 1
+[connection signal="immunity_feverM" from="Player" to="Player/Camera2D/Interface" method="_on_Player_immunity_feverM"]
+[connection signal="immunity_nonfeverM" from="Player" to="Player/Camera2D/Interface" method="_on_Player_immunity_nonfeverM"]
+[connection signal="infever" from="Player" to="Enemy" method="_on_Player_infever"]
+[connection signal="outfever" from="Player" to="Enemy" method="_on_Player_outfever"]
 [connection signal="timeout" from="Player/Camera2D/Interface/TimerLabel/Timer" to="Player/Camera2D/Interface/TimerLabel" method="_on_Timer_timeout"]
+[connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/Pausebtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Pausebtn_button_up"]
+[connection signal="pressed" from="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/HBoxContainer/BgmOnOffbtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_BgmOnOffbtn_pressed"]
+[connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Resumebtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Resumebtn_button_up"]
+[connection signal="pressed" from="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Resumebtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Resumebtn_pressed"]
+[connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Restartbtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Restartbtn_button_up"]
+[connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Exitbtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Exitbtn_button_up"]
+[connection signal="changescore" from="Enemy" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy2" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy2" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy3" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy3" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy4" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy4" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy5" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy5" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy6" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy6" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy7" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy7" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy8" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy8" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy9" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy9" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy10" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy10" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy11" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy11" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy12" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy12" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy13" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy13" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy14" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy14" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy15" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy15" to="Player" method="_on_Enemy_enemykilled"]

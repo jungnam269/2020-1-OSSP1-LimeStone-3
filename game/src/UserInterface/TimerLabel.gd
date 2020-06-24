@@ -5,7 +5,7 @@ var s = 30
 func _process(delta):
 	
 	if s == 0 :
-		get_tree().change_scene("res://src/Sceens/EndingScreen.tscn")
+		get_tree().change_scene("res://src/Screens/EndingScreen1.tscn")
 
 	else :
 		set_text(str(s))

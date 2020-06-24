@@ -15,7 +15,7 @@ export var enemymod = 0
 onready var timer = get_node("DamageTimer")
 
 func _ready():	#적은 플레이어 시야에 출현하기 전에는 작동하지 않는다.
-	set_physics_process(false)
+	#set_physics_process(false)
 	current_hp=hp
 	
 func _physics_process(delta: float) -> void:	#화면에 출현한 적은 플레이어쪽으로 일정한 속도로 움직
@@ -41,9 +41,8 @@ func chase(delta):
 		position += motion
 		
 func passby(delta):
-	var direction = (get_node('../Player').position).normalized()
-	var motion = direction * speed.x * delta
-	position += motion
+	var motion = speed.x * delta *movespeed
+	position.x += motion
 	
 func movement():
 	if get_node('../Player').position.x - position.x > 0: #플레이어보다 왼쪽일때
@@ -87,6 +86,7 @@ func gohome():
 	set_physics_process(false)
 	set_process(false)
 	$DamageArea/CollisionShape2D.disabled = true
+	$Area2D/Head.disabled = true
 	$AnimatedSprite.flip_h = false
 	$AnimatedSprite.play("Dead")
 	yield(timer, "timeout")
@@ -102,7 +102,3 @@ func _on_Player_infever():
 
 func _on_Player_outfever():
 	damage = 50
-
-
-func _on_Enemy_enemykilled():
-	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://src/Actors/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprite/en1stand.png" type="Texture" id=2]
@@ -25,9 +25,28 @@
 [ext_resource path="res://assets/sprite/en2walk7.png" type="Texture" id=23]
 [ext_resource path="res://assets/sprite/en2walk8.png" type="Texture" id=24]
 [ext_resource path="res://assets/gohome_resource.png" type="Texture" id=25]
+[ext_resource path="res://assets/sprite/en3stand.png" type="Texture" id=26]
+[ext_resource path="res://assets/sprite/en3walk1.png" type="Texture" id=27]
+[ext_resource path="res://assets/sprite/en3walk2.png" type="Texture" id=28]
+[ext_resource path="res://assets/sprite/en3walk3.png" type="Texture" id=29]
+[ext_resource path="res://assets/sprite/en3walk4.png" type="Texture" id=30]
+[ext_resource path="res://assets/sprite/en3walk5.png" type="Texture" id=31]
+[ext_resource path="res://assets/sprite/en3walk6.png" type="Texture" id=32]
+[ext_resource path="res://assets/sprite/en3walk7.png" type="Texture" id=33]
+[ext_resource path="res://assets/sprite/en3walk8.png" type="Texture" id=34]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 29 ), ExtResource( 32 ), ExtResource( 27 ), ExtResource( 30 ), ExtResource( 33 ), ExtResource( 28 ), ExtResource( 31 ), ExtResource( 34 ) ],
+"loop": true,
+"name": "move3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ) ],
+"loop": true,
+"name": "stand3",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 21 ) ],
 "loop": true,
 "name": "move1",

@@ -133,6 +133,7 @@ scale = Vector2( 0.6, 0.6 )
 [node name="Enemy7" parent="." instance=ExtResource( 4 )]
 position = Vector2( 4736, 576 )
 scale = Vector2( 0.6, 0.6 )
+enemymod = 2
 
 [node name="Enemy6" parent="." instance=ExtResource( 4 )]
 position = Vector2( 4049.97, 652.034 )
@@ -141,6 +142,7 @@ scale = Vector2( 0.6, 0.6 )
 [node name="Enemy5" parent="." instance=ExtResource( 4 )]
 position = Vector2( 3520, 576 )
 scale = Vector2( 0.6, 0.6 )
+enemymod = 2
 
 [node name="Enemy4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 2977.28, 643.921 )
@@ -149,6 +151,7 @@ scale = Vector2( 0.6, 0.6 )
 [node name="Enemy3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 2496, 576 )
 scale = Vector2( 0.6, 0.6 )
+enemymod = 2
 
 [node name="Enemy2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1792, 648 )

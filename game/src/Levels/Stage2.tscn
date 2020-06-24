@@ -355,6 +355,7 @@ flat = true
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1535.84, 707.427 )
 scale = Vector2( 0.6, 0.6 )
+enemymod = 2
 
 [node name="Enemy2" parent="." instance=ExtResource( 4 )]
 position = Vector2( -948.361, 599.74 )
@@ -378,6 +379,7 @@ enemymod = 1
 [node name="Enemy6" parent="." instance=ExtResource( 4 )]
 position = Vector2( 4345.34, 558.4 )
 scale = Vector2( 0.6, 0.6 )
+enemymod = 2
 
 [node name="Enemy7" parent="." instance=ExtResource( 4 )]
 position = Vector2( 4910.52, 691.2 )
@@ -386,7 +388,7 @@ scale = Vector2( 0.6, 0.6 )
 [node name="Enemy8" parent="." instance=ExtResource( 4 )]
 position = Vector2( 5573.33, 587.2 )
 scale = Vector2( 0.6, 0.6 )
-enemymod = 1
+enemymod = 2
 
 [node name="Enemy9" parent="." instance=ExtResource( 4 )]
 position = Vector2( 2116.29, 600.06 )
@@ -405,6 +407,7 @@ enemymod = 1
 [node name="Enemy12" parent="." instance=ExtResource( 4 )]
 position = Vector2( 3519.9, 616 )
 scale = Vector2( 0.6, 0.6 )
+enemymod = 2
 [connection signal="immunity_feverM" from="Player" to="Player/Camera2D/Interface" method="_on_Player_immunity_feverM"]
 [connection signal="immunity_nonfeverM" from="Player" to="Player/Camera2D/Interface" method="_on_Player_immunity_nonfeverM"]
 [connection signal="infever" from="Player" to="Enemy" method="_on_Player_infever"]

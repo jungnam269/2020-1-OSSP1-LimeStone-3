@@ -47,11 +47,11 @@ icon = ExtResource( 1 )
 flat = true
 
 [node name="Ed3TextLabel" type="RichTextLabel" parent="."]
-margin_left = 495.0
-margin_top = 144.0
-margin_right = 785.0
-margin_bottom = 197.0
-rect_scale = Vector2( 1.1, 1.1 )
+margin_left = 439.466
+margin_top = 48.7995
+margin_right = 729.466
+margin_bottom = 101.8
+rect_scale = Vector2( 1.4, 1.4 )
 theme = ExtResource( 6 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "Ed3. 코로나 종식"

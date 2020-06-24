@@ -80,15 +80,15 @@ points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "def",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 16 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "fever",
 "speed": 2.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "def",
+"speed": 5.0
 } ]
 
 [node name="Stage2" type="Node2D"]

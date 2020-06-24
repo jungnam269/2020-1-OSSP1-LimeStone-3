@@ -23,15 +23,15 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "def",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 10 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "fever",
 "speed": 2.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "def",
+"speed": 5.0
 } ]
 
 [node name="Interface" type="Control"]
@@ -58,21 +58,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Immunity_gauge" type="TextureRect" parent="."]
-margin_top = 37.2693
-margin_right = 416.0
-margin_bottom = 123.269
-texture = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Immunity_gauge_feverM" type="TextureRect" parent="."]
 visible = false
 margin_top = 37.0
 margin_right = 416.0
 margin_bottom = 123.0
 texture = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Immunity_gauge" type="TextureRect" parent="."]
+margin_top = 37.2693
+margin_right = 416.0
+margin_bottom = 123.269
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

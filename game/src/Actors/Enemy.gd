@@ -102,3 +102,7 @@ func _on_Player_infever():
 
 func _on_Player_outfever():
 	damage = 50
+
+
+func _on_Enemy_enemykilled():
+	pass # Replace with function body.

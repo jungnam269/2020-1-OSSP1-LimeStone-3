@@ -26,7 +26,7 @@
 [ext_resource path="res://assets/Pausemenu.png" type="Texture" id=24]
 [ext_resource path="res://assets/pausebt.png" type="Texture" id=25]
 [ext_resource path="res://assets/resumebarbt.png" type="Texture" id=26]
-[ext_resource path="res://src/Screens/EndingScreen1.tscn" type="PackedScene" id=27]
+[ext_resource path="res://src/Screens/EndingScreen3.tscn" type="PackedScene" id=27]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
@@ -122,13 +122,13 @@ format = 1
 tile_data = PoolIntArray( 524288, 0, 0, 524289, 0, 0, 589824, 0, 0, 589825, 0, 0, 655360, 0, 0, 655361, 0, 0, 720896, 0, 0, 720897, 0, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 128, 616 )
+position = Vector2( 423.688, 616 )
 scale = Vector2( 0.6, 0.6 )
 collision_mask = 8
 speed = Vector2( 150, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2( -213.333, -1026.67 )
+position = Vector2( -706.146, -1026.67 )
 scale = Vector2( 1.66667, 1.66667 )
 offset = Vector2( 640, 385 )
 current = true
@@ -157,7 +157,6 @@ __meta__ = {
 }
 
 [node name="Immunity_gauge_feverM" type="TextureRect" parent="Player/Camera2D/Interface"]
-visible = false
 margin_top = 37.0
 margin_right = 416.0
 margin_bottom = 123.0
@@ -391,36 +390,36 @@ position = Vector2( 7612.66, 757.114 )
 next_scene = ExtResource( 27 )
 [connection signal="immunity_feverM" from="Player" to="Player/Camera2D/Interface" method="_on_Player_immunity_feverM"]
 [connection signal="immunity_nonfeverM" from="Player" to="Player/Camera2D/Interface" method="_on_Player_immunity_nonfeverM"]
-[connection signal="infever" from="Player" to="Enemy9" method="_on_Player_infever"]
-[connection signal="infever" from="Player" to="Enemy14" method="_on_Player_infever"]
-[connection signal="infever" from="Player" to="Enemy11" method="_on_Player_infever"]
-[connection signal="infever" from="Player" to="Enemy8" method="_on_Player_infever"]
-[connection signal="infever" from="Player" to="Enemy4" method="_on_Player_infever"]
 [connection signal="infever" from="Player" to="Enemy5" method="_on_Player_infever"]
-[connection signal="infever" from="Player" to="Enemy" method="_on_Player_infever"]
-[connection signal="infever" from="Player" to="Enemy13" method="_on_Player_infever"]
 [connection signal="infever" from="Player" to="Enemy6" method="_on_Player_infever"]
-[connection signal="infever" from="Player" to="Enemy3" method="_on_Player_infever"]
-[connection signal="infever" from="Player" to="Enemy15" method="_on_Player_infever"]
-[connection signal="infever" from="Player" to="Enemy10" method="_on_Player_infever"]
-[connection signal="infever" from="Player" to="Enemy12" method="_on_Player_infever"]
 [connection signal="infever" from="Player" to="Enemy7" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy13" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy14" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy15" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy8" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy9" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy10" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy11" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy12" method="_on_Player_infever"]
 [connection signal="infever" from="Player" to="Enemy2" method="_on_Player_infever"]
-[connection signal="outfever" from="Player" to="Enemy9" method="_on_Player_outfever"]
-[connection signal="outfever" from="Player" to="Enemy14" method="_on_Player_outfever"]
-[connection signal="outfever" from="Player" to="Enemy11" method="_on_Player_outfever"]
-[connection signal="outfever" from="Player" to="Enemy8" method="_on_Player_outfever"]
-[connection signal="outfever" from="Player" to="Enemy4" method="_on_Player_outfever"]
+[connection signal="infever" from="Player" to="Enemy3" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy4" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy" method="_on_Player_infever"]
 [connection signal="outfever" from="Player" to="Enemy5" method="_on_Player_outfever"]
-[connection signal="outfever" from="Player" to="Enemy" method="_on_Player_outfever"]
-[connection signal="outfever" from="Player" to="Enemy13" method="_on_Player_outfever"]
 [connection signal="outfever" from="Player" to="Enemy6" method="_on_Player_outfever"]
-[connection signal="outfever" from="Player" to="Enemy3" method="_on_Player_outfever"]
-[connection signal="outfever" from="Player" to="Enemy15" method="_on_Player_outfever"]
-[connection signal="outfever" from="Player" to="Enemy10" method="_on_Player_outfever"]
-[connection signal="outfever" from="Player" to="Enemy12" method="_on_Player_outfever"]
 [connection signal="outfever" from="Player" to="Enemy7" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy13" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy14" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy15" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy8" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy9" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy10" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy11" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy12" method="_on_Player_outfever"]
 [connection signal="outfever" from="Player" to="Enemy2" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy3" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy4" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy" method="_on_Player_outfever"]
 [connection signal="timeout" from="Player/Camera2D/Interface/TimerLabel/Timer" to="Player/Camera2D/Interface/TimerLabel" method="_on_Timer_timeout"]
 [connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/Pausebtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Pausebtn_button_up"]
 [connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Resumebtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Resumebtn_button_up"]

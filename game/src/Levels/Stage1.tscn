@@ -157,12 +157,12 @@ position = Vector2( 1792, 648 )
 scale = Vector2( 0.6, 0.6 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 168, 648 )
+position = Vector2( 423.688, 648 )
 scale = Vector2( 0.6, 0.6 )
 speed = Vector2( 150, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2( -280, -1080 )
+position = Vector2( -706.147, -1080 )
 scale = Vector2( 1.66667, 1.66667 )
 offset = Vector2( 640, 385 )
 current = true
@@ -209,18 +209,18 @@ next_scene = ExtResource( 9 )
 [connection signal="enemykilled" from="Enemy2" to="Player" method="_on_Enemy_enemykilled"]
 [connection signal="immunity_feverM" from="Player" to="Player/Camera2D/Interface" method="_on_Player_immunity_feverM"]
 [connection signal="immunity_nonfeverM" from="Player" to="Player/Camera2D/Interface" method="_on_Player_immunity_nonfeverM"]
+[connection signal="infever" from="Player" to="Enemy6" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy5" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy4" method="_on_Player_infever"]
 [connection signal="infever" from="Player" to="Enemy" method="_on_Player_infever"]
 [connection signal="infever" from="Player" to="Enemy7" method="_on_Player_infever"]
-[connection signal="infever" from="Player" to="Enemy5" method="_on_Player_infever"]
-[connection signal="infever" from="Player" to="Enemy6" method="_on_Player_infever"]
-[connection signal="infever" from="Player" to="Enemy2" method="_on_Player_infever"]
-[connection signal="infever" from="Player" to="Enemy4" method="_on_Player_infever"]
 [connection signal="infever" from="Player" to="Enemy3" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy2" method="_on_Player_infever"]
+[connection signal="outfever" from="Player" to="Enemy6" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy5" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy4" method="_on_Player_outfever"]
 [connection signal="outfever" from="Player" to="Enemy" method="_on_Player_outfever"]
 [connection signal="outfever" from="Player" to="Enemy7" method="_on_Player_outfever"]
-[connection signal="outfever" from="Player" to="Enemy5" method="_on_Player_outfever"]
-[connection signal="outfever" from="Player" to="Enemy6" method="_on_Player_outfever"]
-[connection signal="outfever" from="Player" to="Enemy2" method="_on_Player_outfever"]
-[connection signal="outfever" from="Player" to="Enemy4" method="_on_Player_outfever"]
 [connection signal="outfever" from="Player" to="Enemy3" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy2" method="_on_Player_outfever"]
 [connection signal="button_up" from="Player/Camera2D/StageSoundButton" to="Player/Camera2D/StageSoundButton" method="_on_StageSoundButton_button_up"]

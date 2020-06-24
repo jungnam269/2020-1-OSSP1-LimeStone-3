@@ -7,7 +7,7 @@
 [ext_resource path="res://src/UserInterface/QuitButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/UserInterface/BGMOFFButton.gd" type="Script" id=6]
 [ext_resource path="res://assets/bgmbt.png" type="Texture" id=7]
-[ext_resource path="res://src/Sceens/infomenu.gd" type="Script" id=8]
+[ext_resource path="res://src/Screens/infomenu.gd" type="Script" id=8]
 [ext_resource path="res://assets/titlestartbt.png" type="Texture" id=9]
 [ext_resource path="res://assets/titleinfobt.png" type="Texture" id=10]
 [ext_resource path="res://assets/titlebatang.png" type="Texture" id=11]
@@ -231,6 +231,6 @@ __meta__ = {
 volume_db = -21.204
 [connection signal="pressed" from="InfoButton" to="InfoButton/infoimage/infomenu2" method="_on_InfoButton_pressed"]
 [connection signal="pressed" from="InfoButton/infoimage/infomenu2/infonextbtn" to="InfoButton/infoimage/infomenu" method="_on_infonextbtn_pressed"]
-[connection signal="pressed" from="InfoButton/infoimage/infomenu/infoexitbtn" to="InfoButton/infoimage/infomenu" method="_on_infoexitbtn_pressed"]
 [connection signal="pressed" from="InfoButton/infoimage/infomenu/infoexitbtn" to="InfoButton/infoimage/infomenu2" method="_on_infoexitbtn_pressed"]
+[connection signal="pressed" from="InfoButton/infoimage/infomenu/infoexitbtn" to="InfoButton/infoimage/infomenu" method="_on_infoexitbtn_pressed"]
 [connection signal="pressed" from="BGMOFFButton" to="BGMOFFButton" method="_on_BGMOFFButton_pressed"]

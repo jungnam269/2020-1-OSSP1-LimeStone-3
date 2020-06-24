@@ -12,6 +12,8 @@ var laser2 = preload("res://src/Attack/LaserBeam2.tscn")
 var facingRight = true
 var isattack = false
 var damage = 20
+var gauge = 100
+var attackon = false
 
 func _ready():
 	emit_signal("immunedamage",immunity)
@@ -30,6 +32,11 @@ func _process(delta):	#스프라이트 적용과 버튼 입력에 따라 스프�
 		fevermode = false
 		emit_signal("immunity_nonfeverM")
 		emit_signal("outfever")
+	if gauge < 100 && attackon == false :
+		gauge += 2.5
+	if attackon :
+		gauge -= 2.5
+	updategauge()
 
 func normalphysics(delta):
 	if not facingRight:
@@ -46,7 +53,8 @@ func normalphysics(delta):
 	else:
 		$AnimatedSprite.stop()
 	
-	if Input.is_action_pressed("attack") && get_node("LaserBeam") == null :
+	if Input.is_action_pressed("attack") && get_node("LaserBeam") == null && gauge > 0 :
+		attackon = true
 		if fevermode == false :
 			var laser_shoot_instance = laser.instance()
 			add_child(laser_shoot_instance)
@@ -58,9 +66,10 @@ func normalphysics(delta):
 			laser_shoot_instance.position = $Eyezone.position	
 			$AudioStreamPlayer2D.play()
 		
-	if Input.is_action_just_released("attack") && get_node("LaserBeam") != null:
+	if Input.is_action_just_released("attack") && get_node("LaserBeam") != null || gauge <= 0 :
 		$AudioStreamPlayer2D.stop()
 		get_node("LaserBeam").queue_free()
+		attackon = false
 
 func _physics_process(delta: float) -> void: #움직이는 물리 구현
 	var direction: = get_direction()
@@ -92,5 +101,8 @@ func _on_Enemy_enemykilled():
 	immunity += 20
 	updateimmune()
 	
+func updategauge():
+	$Attackbar.value = int(gauge)
+
 func updateimmune():
 	get_node("Camera2D/Interface/TextureProgress").value=int(immunity)

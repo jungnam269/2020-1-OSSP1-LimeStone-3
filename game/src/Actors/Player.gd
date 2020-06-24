@@ -77,7 +77,7 @@ func get_direction() -> Vector2: #입력을 통한 방향이동
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"), 1.0
 	)
 
-func Damaged(damage): #적이 공격받을 때 hp감소 & 시각화
+func Damaged(damage):
 	immunity -= damage
 	updateimmune()
 	

@@ -102,6 +102,7 @@ speed = Vector2( 100, 0 )
 position = Vector2( -213.333, -1026.67 )
 scale = Vector2( 1.66667, 1.66667 )
 stream = ExtResource( 3 )
+volume_db = -3.0
 autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

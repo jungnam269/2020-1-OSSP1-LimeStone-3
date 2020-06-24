@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=2]
 
-[ext_resource path="res://src/Actors/enemy.gd" type="Script" id=1]
+[ext_resource path="res://src/Actors/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprite/en1stand.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprite/en1walk3.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprite/en1walk1.png" type="Texture" id=4]
@@ -25,6 +25,7 @@
 [ext_resource path="res://assets/sprite/en2walk7.png" type="Texture" id=23]
 [ext_resource path="res://assets/sprite/en2walk8.png" type="Texture" id=24]
 [ext_resource path="res://assets/gohome_resource.png" type="Texture" id=25]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

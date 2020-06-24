@@ -173,11 +173,24 @@ margin_right = -1.06727
 position = Vector2( -226.667, -960 )
 scale = Vector2( 1.66667, 1.66667 )
 stream = ExtResource( 6 )
+volume_db = -3.0
 autoplay = true
 
 [node name="Portal1" parent="." instance=ExtResource( 8 )]
 position = Vector2( 5280.56, 769.293 )
 next_scene = ExtResource( 9 )
+[connection signal="changescore" from="Enemy" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy" to="Player" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy7" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy7" to="Player/Camera2D/Interface" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy6" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="changescore" from="Enemy5" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy5" to="Enemy6" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy4" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy4" to="Player/Camera2D/Interface" method="_on_Enemy_enemykilled"]
+[connection signal="changescore" from="Enemy3" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="changescore" from="Enemy2" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
+[connection signal="enemykilled" from="Enemy2" to="Player" method="_on_Enemy_enemykilled"]
 [connection signal="immunity_feverM" from="Player" to="Player/Camera2D/Interface" method="_on_Player_immunity_feverM"]
 [connection signal="immunity_nonfeverM" from="Player" to="Player/Camera2D/Interface" method="_on_Player_immunity_nonfeverM"]
 [connection signal="infever" from="Player" to="Enemy" method="_on_Player_infever"]

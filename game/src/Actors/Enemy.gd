@@ -7,7 +7,7 @@ signal enemykilled
 signal changescore
 var hp = 100
 var current_hp
-var damage = 50
+var damage = 10
 var isattack = false
 export var movespeed = 3
 export var enemymod = 0
@@ -35,8 +35,6 @@ func _process(delta): #기본 상태에서는 stop 에 해당하는 스프라이
 			movement2()
 		if enemymod == 2:
 			movement3()
-	if isattack == true:
-		Damaged(damage*delta)
 
 func chase(delta):
 	var direction = (get_node('../Player').position - position).normalized()
@@ -77,6 +75,7 @@ func movement3():
 func _on_Area2D_area_entered(area):
 	$HPbar.visible = true
 	print("Oh!")
+	Damaged(damage)
 	isattack = true
 	$AnimatedSprite.play("zapp")
 	$AudioStreamPlayer2D.play()
@@ -113,7 +112,7 @@ func disapeared():
 	
 	
 func _on_Player_infever():
-	damage = 150
+	damage = 30
 
 func _on_Player_outfever():
-	damage = 50
+	damage = 10

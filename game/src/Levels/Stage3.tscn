@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://assets/Stage3 background - mainstreet Lime.png" type="Texture" id=1]
 [ext_resource path="res://src/Levels/Stage3.tres" type="TileSet" id=2]
@@ -14,14 +14,13 @@
 [ext_resource path="res://src/UserInterface/Interface.gd" type="Script" id=12]
 [ext_resource path="res://assets/Immunity_gauge_feverMeff2.png" type="Texture" id=13]
 [ext_resource path="res://src/Countdown_timer/PauseMenuLayer.gd" type="Script" id=14]
-[ext_resource path="res://src/Countdown_timer/BgmOnOffbtn.gd" type="Script" id=15]
+[ext_resource path="res://src/Levels/Stage3SoundButton.gd" type="Script" id=15]
 [ext_resource path="res://assets/bgmbt.png" type="Texture" id=16]
 [ext_resource path="res://assets/Immunity_gauge_feverMeff1.png" type="Texture" id=17]
 [ext_resource path="res://assets/Immunity_gauge_feverM.png" type="Texture" id=18]
 [ext_resource path="res://assets/Immunity_gauge_bg.png" type="Texture" id=19]
 [ext_resource path="res://assets/Immunity_gauge_fill.png" type="Texture" id=20]
 [ext_resource path="res://assets/restartbarbt.png" type="Texture" id=21]
-[ext_resource path="res://assets/volumncontrolbt.png" type="Texture" id=22]
 [ext_resource path="res://assets/exitbt.png" type="Texture" id=23]
 [ext_resource path="res://assets/Pausemenu.png" type="Texture" id=24]
 [ext_resource path="res://assets/pausebt.png" type="Texture" id=25]
@@ -55,15 +54,15 @@ points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "def",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 17 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "fever",
 "speed": 2.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "def",
+"speed": 5.0
 } ]
 
 [node name="Stage3" type="Node2D"]
@@ -124,14 +123,7 @@ tile_data = PoolIntArray( 524288, 0, 0, 524289, 0, 0, 589824, 0, 0, 589825, 0, 0
 position = Vector2( 128, 616 )
 scale = Vector2( 0.6, 0.6 )
 collision_mask = 8
-speed = Vector2( 100, 0 )
-
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Player"]
-position = Vector2( -213.333, -1026.67 )
-scale = Vector2( 1.66667, 1.66667 )
-stream = ExtResource( 3 )
-volume_db = -3.0
-autoplay = true
+speed = Vector2( 150, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( -213.333, -1026.67 )
@@ -255,42 +247,6 @@ position = Vector2( 638.236, 382.482 )
 scale = Vector2( 0.953547, 0.851991 )
 texture = ExtResource( 24 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면"]
-anchor_left = 0.195
-anchor_top = 0.181
-anchor_right = 0.899
-anchor_bottom = 0.429
-margin_left = -240.75
-margin_top = -297.202
-margin_right = -250.55
-margin_bottom = -303.418
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-custom_constants/separation = 0
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BgmOnOffbtn" type="TextureButton" parent="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/HBoxContainer"]
-margin_right = 142.0
-margin_bottom = 153.0
-size_flags_horizontal = 12
-size_flags_vertical = 15
-size_flags_stretch_ratio = 3.75
-texture_normal = ExtResource( 16 )
-script = ExtResource( 15 )
-
-[node name="VolumnControlbtn" type="TextureButton" parent="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/HBoxContainer"]
-margin_left = 142.0
-margin_right = 307.0
-margin_bottom = 153.0
-size_flags_horizontal = 12
-size_flags_vertical = 12
-texture_normal = ExtResource( 22 )
-stretch_mode = 2
-
 [node name="PauseControlMenu" type="VBoxContainer" parent="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면"]
 pause_mode = 2
 anchor_left = -0.772
@@ -298,9 +254,9 @@ anchor_top = -0.149
 anchor_right = 2.066
 anchor_bottom = 1.198
 margin_left = 238.4
-margin_top = 51.658
+margin_top = -29.342
 margin_right = -816.7
-margin_bottom = -514.116
+margin_bottom = -595.116
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -330,58 +286,81 @@ margin_bottom = 299.0
 icon = ExtResource( 23 )
 flat = true
 
+[node name="Stage3SoundButton" type="Button" parent="Player/Camera2D"]
+margin_left = 1164.0
+margin_top = 130.0
+margin_right = 1259.0
+margin_bottom = 225.0
+icon = ExtResource( 16 )
+flat = true
+expand_icon = true
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Player/Camera2D/Stage3SoundButton"]
+stream = ExtResource( 3 )
+volume_db = -3.0
+autoplay = true
+
 [node name="Enemy" parent="." instance=ExtResource( 9 )]
-position = Vector2( -2675.32, 630.391 )
+position = Vector2( -5245.22, 728.114 )
 scale = Vector2( 0.6, 0.6 )
+movespeed = 10
 enemymod = 1
 
 [node name="Enemy2" parent="." instance=ExtResource( 9 )]
-position = Vector2( -2052.97, 691.2 )
+position = Vector2( -3801.26, 691.974 )
 scale = Vector2( 0.6, 0.6 )
+movespeed = 10
 enemymod = 1
 
 [node name="Enemy3" parent="." instance=ExtResource( 9 )]
-position = Vector2( -1534.27, 662.4 )
+position = Vector2( -2451.41, 633.6 )
 scale = Vector2( 0.6, 0.6 )
+movespeed = 10
 enemymod = 1
 
 [node name="Enemy4" parent="." instance=ExtResource( 9 )]
-position = Vector2( -945.22, 691.2 )
+position = Vector2( -1308.25, 683.86 )
 scale = Vector2( 0.6, 0.6 )
+movespeed = 7
 enemymod = 1
 
 [node name="Enemy5" parent="." instance=ExtResource( 9 )]
-position = Vector2( -288.098, 564.831 )
+position = Vector2( -288.098, 662.4 )
 scale = Vector2( 0.6, 0.6 )
+movespeed = 8
 enemymod = 1
 
 [node name="Enemy6" parent="." instance=ExtResource( 9 )]
-position = Vector2( 4428.71, 691.2 )
+position = Vector2( 5508.26, 683.86 )
 scale = Vector2( 0.6, 0.6 )
 movespeed = 1
 
 [node name="Enemy7" parent="." instance=ExtResource( 9 )]
-position = Vector2( 4126.33, 720 )
+position = Vector2( 4823.74, 720 )
 scale = Vector2( 0.6, 0.6 )
 movespeed = 1
 
 [node name="Enemy8" parent="." instance=ExtResource( 9 )]
-position = Vector2( 2161, 775 )
+position = Vector2( 2839.3, 616 )
 scale = Vector2( 0.6, 0.6 )
 movespeed = 1
 
 [node name="Enemy9" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1755.9, 720 )
+position = Vector2( 2281.34, 624.114 )
 scale = Vector2( 0.6, 0.6 )
 movespeed = 1
 
 [node name="Enemy10" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1649.1, 627.171 )
+position = Vector2( 1123.51, 671.287 )
 scale = Vector2( 0.6, 0.6 )
 movespeed = 2
 
 [node name="Enemy11" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1984, 633.6 )
+position = Vector2( 3646.31, 700.088 )
 scale = Vector2( 0.6, 0.6 )
 movespeed = 2
 
@@ -391,12 +370,12 @@ scale = Vector2( 0.6, 0.6 )
 movespeed = 1
 
 [node name="Enemy13" parent="." instance=ExtResource( 9 )]
-position = Vector2( 4735.76, 720 )
+position = Vector2( 6971.28, 633.6 )
 scale = Vector2( 0.6, 0.6 )
 movespeed = 1
 
 [node name="Enemy14" parent="." instance=ExtResource( 9 )]
-position = Vector2( 4842.56, 544.145 )
+position = Vector2( 6266.03, 630.391 )
 scale = Vector2( 0.6, 0.6 )
 movespeed = 0
 
@@ -407,14 +386,42 @@ movespeed = 1
 [connection signal="immunity_feverM" from="Player" to="Player/Camera2D/Interface" method="_on_Player_immunity_feverM"]
 [connection signal="immunity_nonfeverM" from="Player" to="Player/Camera2D/Interface" method="_on_Player_immunity_nonfeverM"]
 [connection signal="infever" from="Player" to="Enemy" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy10" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy11" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy12" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy13" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy14" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy15" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy2" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy3" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy4" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy5" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy6" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy7" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy8" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy9" method="_on_Player_infever"]
 [connection signal="outfever" from="Player" to="Enemy" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy10" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy11" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy12" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy13" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy14" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy15" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy2" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy3" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy4" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy5" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy6" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy7" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy8" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy9" method="_on_Player_outfever"]
 [connection signal="timeout" from="Player/Camera2D/Interface/TimerLabel/Timer" to="Player/Camera2D/Interface/TimerLabel" method="_on_Timer_timeout"]
 [connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/Pausebtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Pausebtn_button_up"]
-[connection signal="pressed" from="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/HBoxContainer/BgmOnOffbtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_BgmOnOffbtn_pressed"]
 [connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Resumebtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Resumebtn_button_up"]
 [connection signal="pressed" from="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Resumebtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Resumebtn_pressed"]
 [connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Restartbtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Restartbtn_button_up"]
 [connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Exitbtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Exitbtn_button_up"]
+[connection signal="button_up" from="Player/Camera2D/Stage3SoundButton" to="Player/Camera2D/Stage3SoundButton" method="_on_Stage3SoundButton_button_up"]
 [connection signal="changescore" from="Enemy" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
 [connection signal="enemykilled" from="Enemy" to="Player" method="_on_Enemy_enemykilled"]
 [connection signal="changescore" from="Enemy2" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]

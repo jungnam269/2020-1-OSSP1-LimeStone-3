@@ -21,17 +21,17 @@
 [ext_resource path="res://assets/restartbarbt.png" type="Texture" id=19]
 [ext_resource path="res://assets/pausebt.png" type="Texture" id=20]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 10 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "fever",
-"speed": 2.0
-}, {
 "frames": [  ],
 "loop": true,
 "name": "def",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "fever",
+"speed": 2.0
 } ]
 
 [node name="Interface" type="Control"]
@@ -79,7 +79,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 208, 80 )
-frames = SubResource( 1 )
+frames = SubResource( 4 )
 animation = "def"
 
 [node name="Immunity_Bar_Label" type="Label" parent="."]

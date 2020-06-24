@@ -153,7 +153,7 @@ __meta__ = {
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 128, 616 )
 scale = Vector2( 0.6, 0.6 )
-speed = Vector2( 100, 0 )
+speed = Vector2( 150, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( -213.333, -1026.67 )
@@ -340,8 +340,9 @@ position = Vector2( 1535.84, 707.427 )
 scale = Vector2( 0.6, 0.6 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 4 )]
-position = Vector2( -948.361, 599.74 )
+position = Vector2( -948.361, 732.2 )
 scale = Vector2( 0.6, 0.6 )
+movespeed = 6
 enemymod = 1
 
 [node name="Enemy3" parent="." instance=ExtResource( 4 )]
@@ -349,13 +350,15 @@ position = Vector2( 2674.39, 699.314 )
 scale = Vector2( 0.6, 0.6 )
 
 [node name="Enemy4" parent="." instance=ExtResource( 4 )]
-position = Vector2( -2844.78, 772 )
+position = Vector2( -2844.78, 761 )
 scale = Vector2( 0.6, 0.6 )
+movespeed = 10
 enemymod = 1
 
 [node name="Enemy5" parent="." instance=ExtResource( 4 )]
-position = Vector2( -2002.29, 587.2 )
+position = Vector2( -1926.78, 670.514 )
 scale = Vector2( 0.6, 0.6 )
+movespeed = 7
 enemymod = 1
 
 [node name="Enemy6" parent="." instance=ExtResource( 4 )]
@@ -376,13 +379,15 @@ position = Vector2( 2116.29, 600.06 )
 scale = Vector2( 0.6, 0.6 )
 
 [node name="Enemy10" parent="." instance=ExtResource( 4 )]
-position = Vector2( -3407.16, 570.94 )
+position = Vector2( -4344.97, 740.314 )
 scale = Vector2( 0.6, 0.6 )
+movespeed = 11
 enemymod = 1
 
 [node name="Enemy11" parent="." instance=ExtResource( 4 )]
-position = Vector2( -4747.64, 630.391 )
+position = Vector2( -5636.59, 715.541 )
 scale = Vector2( 0.6, 0.6 )
+movespeed = 11
 enemymod = 1
 
 [node name="Enemy12" parent="." instance=ExtResource( 4 )]
@@ -391,7 +396,29 @@ scale = Vector2( 0.6, 0.6 )
 [connection signal="immunity_feverM" from="Player" to="Player/Camera2D/Interface" method="_on_Player_immunity_feverM"]
 [connection signal="immunity_nonfeverM" from="Player" to="Player/Camera2D/Interface" method="_on_Player_immunity_nonfeverM"]
 [connection signal="infever" from="Player" to="Enemy" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy2" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy3" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy4" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy5" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy6" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy10" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy11" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy12" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy7" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy8" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy9" method="_on_Player_infever"]
 [connection signal="outfever" from="Player" to="Enemy" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy2" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy3" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy4" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy5" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy6" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy10" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy11" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy12" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy7" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy8" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy9" method="_on_Player_outfever"]
 [connection signal="timeout" from="Player/Camera2D/Interface/TimerLabel/Timer" to="Player/Camera2D/Interface/TimerLabel" method="_on_Timer_timeout"]
 [connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/Pausebtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Pausebtn_button_up"]
 [connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Resumebtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Resumebtn_button_up"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/Stage1 background - street.png" type="Texture" id=1]
 [ext_resource path="res://assets/Stage1 tilemap - street.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://src/Levels/Stage1.tres" type="TileSet" id=5]
 [ext_resource path="res://assets/Arcade fast flow1.ogg" type="AudioStream" id=6]
 [ext_resource path="res://src/UserInterface/Interface.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Objects/Portal1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Levels/Stage2.tscn" type="PackedScene" id=9]
 
 [sub_resource type="TileSet" id=1]
 0/name = "stage1"
@@ -127,37 +129,30 @@ tile_data = PoolIntArray( 524288, 0, 0, 524289, 0, 0, 524378, 0, 0, 589824, 0, 0
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1040, 712 )
 scale = Vector2( 0.6, 0.6 )
-speed = Vector2( 50, 0 )
 
 [node name="Enemy7" parent="." instance=ExtResource( 4 )]
 position = Vector2( 4736, 576 )
 scale = Vector2( 0.6, 0.6 )
-speed = Vector2( 50, 0 )
 
 [node name="Enemy6" parent="." instance=ExtResource( 4 )]
 position = Vector2( 4049.97, 652.034 )
 scale = Vector2( 0.6, 0.6 )
-speed = Vector2( 50, 0 )
 
 [node name="Enemy5" parent="." instance=ExtResource( 4 )]
 position = Vector2( 3520, 576 )
 scale = Vector2( 0.6, 0.6 )
-speed = Vector2( 50, 0 )
 
 [node name="Enemy4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 2977.28, 643.921 )
 scale = Vector2( 0.6, 0.6 )
-speed = Vector2( 50, 0 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 2496, 576 )
 scale = Vector2( 0.6, 0.6 )
-speed = Vector2( 50, 0 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1792, 648 )
 scale = Vector2( 0.6, 0.6 )
-speed = Vector2( 50, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 168, 648 )
@@ -179,20 +174,10 @@ position = Vector2( -226.667, -960 )
 scale = Vector2( 1.66667, 1.66667 )
 stream = ExtResource( 6 )
 autoplay = true
-[connection signal="changescore" from="Enemy" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
-[connection signal="enemykilled" from="Enemy" to="Player" method="_on_Enemy_enemykilled"]
-[connection signal="changescore" from="Enemy7" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
-[connection signal="enemykilled" from="Enemy7" to="Player" method="_on_Enemy_enemykilled"]
-[connection signal="changescore" from="Enemy6" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
-[connection signal="enemykilled" from="Enemy6" to="Player" method="_on_Enemy_enemykilled"]
-[connection signal="changescore" from="Enemy5" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
-[connection signal="enemykilled" from="Enemy5" to="Player" method="_on_Enemy_enemykilled"]
-[connection signal="changescore" from="Enemy4" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
-[connection signal="enemykilled" from="Enemy4" to="Player" method="_on_Enemy_enemykilled"]
-[connection signal="changescore" from="Enemy3" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
-[connection signal="enemykilled" from="Enemy3" to="Player" method="_on_Enemy_enemykilled"]
-[connection signal="changescore" from="Enemy2" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
-[connection signal="enemykilled" from="Enemy2" to="Player" method="_on_Enemy_enemykilled"]
+
+[node name="Portal1" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5280.56, 769.293 )
+next_scene = ExtResource( 9 )
 [connection signal="immunity_feverM" from="Player" to="Player/Camera2D/Interface" method="_on_Player_immunity_feverM"]
 [connection signal="immunity_nonfeverM" from="Player" to="Player/Camera2D/Interface" method="_on_Player_immunity_nonfeverM"]
 [connection signal="infever" from="Player" to="Enemy" method="_on_Player_infever"]

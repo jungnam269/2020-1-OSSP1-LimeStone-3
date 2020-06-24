@@ -11,7 +11,7 @@ var laser = preload("res://src/Attack/LaserBeam.tscn")
 var laser2 = preload("res://src/Attack/LaserBeam2.tscn")
 var facingRight = true
 var isattack = false
-var damage = 10
+var damage = 20
 var gauge = 100
 var attackon = false
 
@@ -20,8 +20,6 @@ func _ready():
 
 func _process(delta):	#스프라이트 적용과 버튼 입력에 따라 스프라이트를 좌우 반전 시킴
 	normalphysics(delta)
-	if immunity < 0 :
-		get_tree().change_scene("res://src/Screens/EndingScreen1.tscn")
 	if isattack :
 		Damaged(damage*delta)
 	if immunity >= 100 :

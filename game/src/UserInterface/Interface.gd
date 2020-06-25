@@ -23,3 +23,4 @@ func updateglobalscore():
 
 func getglobalscore():
 	count = Score.getscore()
+

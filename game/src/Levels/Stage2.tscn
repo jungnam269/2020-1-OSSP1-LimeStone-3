@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://assets/Stage2 background - DGUmarket.png" type="Texture" id=1]
 [ext_resource path="res://assets/Stage2 tilemap - DGUmarket.png" type="Texture" id=2]
@@ -27,6 +27,11 @@
 [ext_resource path="res://assets/resumebarbt.png" type="Texture" id=25]
 [ext_resource path="res://assets/2to3.png" type="Texture" id=26]
 [ext_resource path="res://src/Objects/Portal1.tscn" type="PackedScene" id=27]
+[ext_resource path="res://assets/Scorelabe_dynamicfont.tres" type="DynamicFont" id=28]
+[ext_resource path="res://src/UserInterface/quitaskcontrol.gd" type="Script" id=29]
+[ext_resource path="res://src/UserInterface/restartask2.gd" type="Script" id=30]
+[ext_resource path="res://assets/Background.png" type="Texture" id=31]
+[ext_resource path="res://assets/topbar.png" type="Texture" id=32]
 
 [sub_resource type="TileSet" id=1]
 0/name = "stage2"
@@ -171,9 +176,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Topbar" parent="Player/Camera2D/Interface" instance=ExtResource( 8 )]
+[node name="Topbar" type="NinePatchRect" parent="Player/Camera2D/Interface" instance=ExtResource( 8 )]
 anchor_right = 1.0
 margin_bottom = 16.0
+rect_min_size = Vector2( 1280, 130 )
+texture = ExtResource( 32 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TextureProgress" type="TextureProgress" parent="Player/Camera2D/Interface"]
 margin_left = 46.3669
@@ -221,9 +235,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Score_counter" parent="Player/Camera2D/Interface" instance=ExtResource( 7 )]
+[node name="Score_counter" type="NinePatchRect" parent="Player/Camera2D/Interface" instance=ExtResource( 7 )]
 margin_left = 824.0
 margin_right = 1124.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 300, 100 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TimerLabel" type="RichTextLabel" parent="Player/Camera2D/Interface"]
 margin_left = 584.0
@@ -266,9 +289,7 @@ __meta__ = {
 [node name="BlackOverlay" type="ColorRect" parent="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer"]
 anchor_right = 1.008
 anchor_bottom = 1.0
-margin_left = -2.0
-margin_right = -14.24
-margin_bottom = 52.0
+margin_right = -10.24
 color = Color( 0.0666667, 0.054902, 0.0627451, 0.745098 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -306,6 +327,7 @@ icon = ExtResource( 25 )
 flat = true
 
 [node name="Restartbtn" type="Button" parent="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu"]
+pause_mode = 2
 margin_top = 101.0
 margin_right = 222.0
 margin_bottom = 198.0
@@ -313,11 +335,130 @@ icon = ExtResource( 20 )
 flat = true
 
 [node name="Exitbtn" type="Button" parent="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu"]
+pause_mode = 2
 margin_top = 202.0
 margin_right = 222.0
 margin_bottom = 299.0
 icon = ExtResource( 22 )
 flat = true
+
+[node name="restartasklayer" type="CanvasLayer" parent="Player/Camera2D/Interface/Pausebtningamelayer"]
+pause_mode = 2
+layer = 5
+
+[node name="restartaskControl" type="Control" parent="Player/Camera2D/Interface/Pausebtningamelayer/restartasklayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = -9.0
+margin_right = 10.0
+margin_bottom = 32.0
+script = ExtResource( 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="restartask2" type="TextureRect" parent="Player/Camera2D/Interface/Pausebtningamelayer/restartasklayer/restartaskControl"]
+margin_left = -7.74646
+margin_top = 3.76062
+margin_right = 1280.25
+margin_bottom = 774.761
+texture = ExtResource( 31 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="restartask2box" type="VBoxContainer" parent="Player/Camera2D/Interface/Pausebtningamelayer/restartasklayer/restartaskControl/restartask2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 368.0
+margin_top = 315.0
+margin_right = -374.0
+margin_bottom = -291.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="restart2txt" type="Label" parent="Player/Camera2D/Interface/Pausebtningamelayer/restartasklayer/restartaskControl/restartask2/restartask2box"]
+margin_right = 581.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 28 )
+custom_colors/font_outline_modulate = Color( 0.384314, 0.0980392, 0.207843, 1 )
+text = "Are you Sure about Restart?"
+
+[node name="restartY" type="Button" parent="Player/Camera2D/Interface/Pausebtningamelayer/restartasklayer/restartaskControl/restartask2/restartask2box"]
+margin_top = 48.0
+margin_right = 581.0
+margin_bottom = 98.0
+custom_fonts/font = ExtResource( 28 )
+text = "Yes"
+
+[node name="restartN" type="Button" parent="Player/Camera2D/Interface/Pausebtningamelayer/restartasklayer/restartaskControl/restartask2/restartask2box"]
+margin_top = 102.0
+margin_right = 581.0
+margin_bottom = 152.0
+custom_fonts/font = ExtResource( 28 )
+text = "No"
+
+[node name="quitasklayer" type="CanvasLayer" parent="Player/Camera2D/Interface/Pausebtningamelayer"]
+pause_mode = 2
+layer = 5
+
+[node name="quitaskControl" type="Control" parent="Player/Camera2D/Interface/Pausebtningamelayer/quitasklayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = -9.0
+margin_right = 10.0
+margin_bottom = 32.0
+script = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quitask2" type="TextureRect" parent="Player/Camera2D/Interface/Pausebtningamelayer/quitasklayer/quitaskControl"]
+margin_left = -7.74646
+margin_top = 3.76062
+margin_right = 1280.25
+margin_bottom = 774.761
+texture = ExtResource( 31 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quitask2box" type="VBoxContainer" parent="Player/Camera2D/Interface/Pausebtningamelayer/quitasklayer/quitaskControl/quitask2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 368.0
+margin_top = 315.0
+margin_right = -374.0
+margin_bottom = -291.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quitask2txt" type="Label" parent="Player/Camera2D/Interface/Pausebtningamelayer/quitasklayer/quitaskControl/quitask2/quitask2box"]
+margin_right = 545.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 28 )
+custom_colors/font_outline_modulate = Color( 0.384314, 0.0980392, 0.207843, 1 )
+text = "Are you Sure about Quit?"
+
+[node name="quitY" type="Button" parent="Player/Camera2D/Interface/Pausebtningamelayer/quitasklayer/quitaskControl/quitask2/quitask2box"]
+margin_top = 48.0
+margin_right = 545.0
+margin_bottom = 98.0
+custom_fonts/font = ExtResource( 28 )
+text = "Yes"
+
+[node name="quitN" type="Button" parent="Player/Camera2D/Interface/Pausebtningamelayer/quitasklayer/quitaskControl/quitask2/quitask2box"]
+margin_top = 102.0
+margin_right = 545.0
+margin_bottom = 152.0
+custom_fonts/font = ExtResource( 28 )
+text = "No"
 
 [node name="Stage2SoundButton" type="Button" parent="Player/Camera2D"]
 margin_left = 1164.0
@@ -399,60 +540,50 @@ scale = Vector2( 0.6, 0.6 )
 [node name="Portal1" parent="." instance=ExtResource( 27 )]
 position = Vector2( 7122.85, 755.743 )
 next_scene = ExtResource( 21 )
-[connection signal="immunity_feverM" from="Player" to="Player/Camera2D/Interface" method="_on_Player_immunity_feverM"]
-[connection signal="immunity_nonfeverM" from="Player" to="Player/Camera2D/Interface" method="_on_Player_immunity_nonfeverM"]
-[connection signal="infever" from="Player" to="Enemy" method="_on_Player_infever"]
-[connection signal="infever" from="Player" to="Enemy10" method="_on_Player_infever"]
-[connection signal="infever" from="Player" to="Enemy11" method="_on_Player_infever"]
 [connection signal="infever" from="Player" to="Enemy12" method="_on_Player_infever"]
-[connection signal="infever" from="Player" to="Enemy8" method="_on_Player_infever"]
-[connection signal="infever" from="Player" to="Enemy9" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy11" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy5" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy10" method="_on_Player_infever"]
 [connection signal="infever" from="Player" to="Enemy2" method="_on_Player_infever"]
 [connection signal="infever" from="Player" to="Enemy3" method="_on_Player_infever"]
 [connection signal="infever" from="Player" to="Enemy4" method="_on_Player_infever"]
-[connection signal="infever" from="Player" to="Enemy5" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy" method="_on_Player_infever"]
 [connection signal="infever" from="Player" to="Enemy6" method="_on_Player_infever"]
 [connection signal="infever" from="Player" to="Enemy7" method="_on_Player_infever"]
-[connection signal="outfever" from="Player" to="Enemy" method="_on_Player_outfever"]
-[connection signal="outfever" from="Player" to="Enemy10" method="_on_Player_outfever"]
-[connection signal="outfever" from="Player" to="Enemy11" method="_on_Player_outfever"]
+[connection signal="infever" from="Player" to="Enemy8" method="_on_Player_infever"]
+[connection signal="infever" from="Player" to="Enemy9" method="_on_Player_infever"]
 [connection signal="outfever" from="Player" to="Enemy12" method="_on_Player_outfever"]
-[connection signal="outfever" from="Player" to="Enemy8" method="_on_Player_outfever"]
-[connection signal="outfever" from="Player" to="Enemy9" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy11" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy5" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy10" method="_on_Player_outfever"]
 [connection signal="outfever" from="Player" to="Enemy2" method="_on_Player_outfever"]
 [connection signal="outfever" from="Player" to="Enemy3" method="_on_Player_outfever"]
 [connection signal="outfever" from="Player" to="Enemy4" method="_on_Player_outfever"]
-[connection signal="outfever" from="Player" to="Enemy5" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy" method="_on_Player_outfever"]
 [connection signal="outfever" from="Player" to="Enemy6" method="_on_Player_outfever"]
 [connection signal="outfever" from="Player" to="Enemy7" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy8" method="_on_Player_outfever"]
+[connection signal="outfever" from="Player" to="Enemy9" method="_on_Player_outfever"]
 [connection signal="timeout" from="Player/Camera2D/Interface/TimerLabel/Timer" to="Player/Camera2D/Interface/TimerLabel" method="_on_Timer_timeout"]
 [connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/Pausebtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Pausebtn_button_up"]
 [connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Resumebtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Resumebtn_button_up"]
 [connection signal="pressed" from="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Resumebtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Resumebtn_pressed"]
-[connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Restartbtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Restartbtn_button_up"]
-[connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Exitbtn" to="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer" method="_on_Exitbtn_button_up"]
+[connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Restartbtn" to="Player/Camera2D/Interface/Pausebtningamelayer/restartasklayer/restartaskControl" method="_on_Restartbtn_button_up"]
+[connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Exitbtn" to="Player/Camera2D/Interface/Pausebtningamelayer/quitasklayer/quitaskControl" method="_on_Exitbtn_button_up"]
+[connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/restartasklayer/restartaskControl/restartask2/restartask2box/restartY" to="Player/Camera2D/Interface/Pausebtningamelayer/restartasklayer/restartaskControl" method="_on_restartY_button_up"]
+[connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/restartasklayer/restartaskControl/restartask2/restartask2box/restartN" to="Player/Camera2D/Interface/Pausebtningamelayer/restartasklayer/restartaskControl" method="_on_restartN_button_up"]
+[connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/quitasklayer/quitaskControl/quitask2/quitask2box/quitY" to="Player/Camera2D/Interface/Pausebtningamelayer/quitasklayer/quitaskControl" method="_on_quitY_button_up"]
+[connection signal="button_up" from="Player/Camera2D/Interface/Pausebtningamelayer/quitasklayer/quitaskControl/quitask2/quitask2box/quitN" to="Player/Camera2D/Interface/Pausebtningamelayer/quitasklayer/quitaskControl" method="_on_quitN_button_up"]
 [connection signal="button_up" from="Player/Camera2D/Stage2SoundButton" to="Player/Camera2D/Stage2SoundButton" method="_on_Stage2SoundButton_button_up"]
-[connection signal="changescore" from="Enemy" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
 [connection signal="enemykilled" from="Enemy" to="Player" method="_on_Enemy_enemykilled"]
-[connection signal="changescore" from="Enemy2" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
 [connection signal="enemykilled" from="Enemy2" to="Player" method="_on_Enemy_enemykilled"]
-[connection signal="changescore" from="Enemy3" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
 [connection signal="enemykilled" from="Enemy3" to="Player" method="_on_Enemy_enemykilled"]
-[connection signal="changescore" from="Enemy4" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
 [connection signal="enemykilled" from="Enemy4" to="Player" method="_on_Enemy_enemykilled"]
-[connection signal="changescore" from="Enemy5" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
 [connection signal="enemykilled" from="Enemy5" to="Player" method="_on_Enemy_enemykilled"]
-[connection signal="changescore" from="Enemy6" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
 [connection signal="enemykilled" from="Enemy6" to="Player" method="_on_Enemy_enemykilled"]
-[connection signal="changescore" from="Enemy7" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
 [connection signal="enemykilled" from="Enemy7" to="Player" method="_on_Enemy_enemykilled"]
-[connection signal="changescore" from="Enemy8" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
 [connection signal="enemykilled" from="Enemy8" to="Player" method="_on_Enemy_enemykilled"]
-[connection signal="changescore" from="Enemy9" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
 [connection signal="enemykilled" from="Enemy9" to="Player" method="_on_Enemy_enemykilled"]
-[connection signal="changescore" from="Enemy10" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
 [connection signal="enemykilled" from="Enemy10" to="Player" method="_on_Enemy_enemykilled"]
-[connection signal="changescore" from="Enemy11" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
 [connection signal="enemykilled" from="Enemy11" to="Player" method="_on_Enemy_enemykilled"]
-[connection signal="changescore" from="Enemy12" to="Player/Camera2D/Interface" method="_on_Enemy_changescore"]
 [connection signal="enemykilled" from="Enemy12" to="Player" method="_on_Enemy_enemykilled"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/UserInterface/Socore_counter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Immunity_gauge_fill.png" type="Texture" id=2]
@@ -11,14 +11,18 @@
 [ext_resource path="res://assets/Immunity_gauge_feverMeff2.png" type="Texture" id=9]
 [ext_resource path="res://assets/Immunity_gauge_feverMeff1.png" type="Texture" id=10]
 [ext_resource path="res://assets/Immunity_gauge_feverM.png" type="Texture" id=11]
+[ext_resource path="res://src/UserInterface/restartask2.gd" type="Script" id=12]
 [ext_resource path="res://src/Countdown_timer/PauseMenuLayer.gd" type="Script" id=13]
 [ext_resource path="res://assets/exitbt.png" type="Texture" id=14]
+[ext_resource path="res://assets/Background.png" type="Texture" id=15]
 [ext_resource path="res://assets/resumebarbt.png" type="Texture" id=16]
 [ext_resource path="res://assets/Pausemenu.png" type="Texture" id=17]
+[ext_resource path="res://assets/Scorelabe_dynamicfont.tres" type="DynamicFont" id=18]
 [ext_resource path="res://assets/restartbarbt.png" type="Texture" id=19]
 [ext_resource path="res://assets/pausebt.png" type="Texture" id=20]
+[ext_resource path="res://src/UserInterface/quitaskcontrol.gd" type="Script" id=21]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 10 ), ExtResource( 9 ) ],
 "loop": true,
@@ -76,7 +80,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 208, 80 )
-frames = SubResource( 1 )
+frames = SubResource( 4 )
 animation = "def"
 
 [node name="Immunity_Bar_Label" type="Label" parent="."]
@@ -173,6 +177,7 @@ icon = ExtResource( 16 )
 flat = true
 
 [node name="Restartbtn" type="Button" parent="Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu"]
+pause_mode = 2
 margin_top = 101.0
 margin_right = 222.0
 margin_bottom = 198.0
@@ -180,14 +185,137 @@ icon = ExtResource( 19 )
 flat = true
 
 [node name="Exitbtn" type="Button" parent="Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu"]
+pause_mode = 2
 margin_top = 202.0
 margin_right = 222.0
 margin_bottom = 299.0
 icon = ExtResource( 14 )
 flat = true
+
+[node name="restartasklayer" type="CanvasLayer" parent="Pausebtningamelayer"]
+pause_mode = 2
+layer = 5
+
+[node name="restartaskControl" type="Control" parent="Pausebtningamelayer/restartasklayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = -9.0
+margin_right = 10.0
+margin_bottom = 32.0
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="restartask2" type="TextureRect" parent="Pausebtningamelayer/restartasklayer/restartaskControl"]
+margin_left = -7.74646
+margin_top = 3.76062
+margin_right = 1280.25
+margin_bottom = 774.761
+texture = ExtResource( 15 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="restartask2box" type="VBoxContainer" parent="Pausebtningamelayer/restartasklayer/restartaskControl/restartask2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 368.0
+margin_top = 315.0
+margin_right = -374.0
+margin_bottom = -291.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="restart2txt" type="Label" parent="Pausebtningamelayer/restartasklayer/restartaskControl/restartask2/restartask2box"]
+margin_right = 581.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 18 )
+custom_colors/font_outline_modulate = Color( 0.384314, 0.0980392, 0.207843, 1 )
+text = "Are you Sure about Restart?"
+
+[node name="restartY" type="Button" parent="Pausebtningamelayer/restartasklayer/restartaskControl/restartask2/restartask2box"]
+margin_top = 48.0
+margin_right = 581.0
+margin_bottom = 98.0
+custom_fonts/font = ExtResource( 18 )
+text = "Yes"
+
+[node name="restartN" type="Button" parent="Pausebtningamelayer/restartasklayer/restartaskControl/restartask2/restartask2box"]
+margin_top = 102.0
+margin_right = 581.0
+margin_bottom = 152.0
+custom_fonts/font = ExtResource( 18 )
+text = "No"
+
+[node name="quitasklayer" type="CanvasLayer" parent="Pausebtningamelayer"]
+pause_mode = 2
+layer = 5
+
+[node name="quitaskControl" type="Control" parent="Pausebtningamelayer/quitasklayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = -9.0
+margin_right = 10.0
+margin_bottom = 32.0
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quitask2" type="TextureRect" parent="Pausebtningamelayer/quitasklayer/quitaskControl"]
+margin_left = -7.74646
+margin_top = 3.76062
+margin_right = 1280.25
+margin_bottom = 774.761
+texture = ExtResource( 15 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quitask2box" type="VBoxContainer" parent="Pausebtningamelayer/quitasklayer/quitaskControl/quitask2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 368.0
+margin_top = 315.0
+margin_right = -374.0
+margin_bottom = -291.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quitask2txt" type="Label" parent="Pausebtningamelayer/quitasklayer/quitaskControl/quitask2/quitask2box"]
+margin_right = 545.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 18 )
+custom_colors/font_outline_modulate = Color( 0.384314, 0.0980392, 0.207843, 1 )
+text = "Are you Sure about Quit?"
+
+[node name="quitY" type="Button" parent="Pausebtningamelayer/quitasklayer/quitaskControl/quitask2/quitask2box"]
+margin_top = 48.0
+margin_right = 545.0
+margin_bottom = 98.0
+custom_fonts/font = ExtResource( 18 )
+text = "Yes"
+
+[node name="quitN" type="Button" parent="Pausebtningamelayer/quitasklayer/quitaskControl/quitask2/quitask2box"]
+margin_top = 102.0
+margin_right = 545.0
+margin_bottom = 152.0
+custom_fonts/font = ExtResource( 18 )
+text = "No"
 [connection signal="timeout" from="TimerLabel/Timer" to="TimerLabel" method="_on_Timer_timeout"]
 [connection signal="button_up" from="Pausebtningamelayer/Pausebtn" to="Pausebtningamelayer/PauseMenuLayer" method="_on_Pausebtn_button_up"]
 [connection signal="button_up" from="Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Resumebtn" to="Pausebtningamelayer/PauseMenuLayer" method="_on_Resumebtn_button_up"]
 [connection signal="pressed" from="Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Resumebtn" to="Pausebtningamelayer/PauseMenuLayer" method="_on_Resumebtn_pressed"]
-[connection signal="button_up" from="Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Restartbtn" to="Pausebtningamelayer/PauseMenuLayer" method="_on_Restartbtn_button_up"]
-[connection signal="button_up" from="Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Exitbtn" to="Pausebtningamelayer/PauseMenuLayer" method="_on_Exitbtn_button_up"]
+[connection signal="button_up" from="Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Restartbtn" to="Pausebtningamelayer/restartasklayer/restartaskControl" method="_on_Restartbtn_button_up"]
+[connection signal="button_up" from="Pausebtningamelayer/PauseMenuLayer/BlackOverlay/Pause메뉴화면/PauseControlMenu/Exitbtn" to="Pausebtningamelayer/quitasklayer/quitaskControl" method="_on_Exitbtn_button_up"]
+[connection signal="button_up" from="Pausebtningamelayer/restartasklayer/restartaskControl/restartask2/restartask2box/restartY" to="Pausebtningamelayer/restartasklayer/restartaskControl" method="_on_restartY_button_up"]
+[connection signal="button_up" from="Pausebtningamelayer/restartasklayer/restartaskControl/restartask2/restartask2box/restartN" to="Pausebtningamelayer/restartasklayer/restartaskControl" method="_on_restartN_button_up"]
+[connection signal="button_up" from="Pausebtningamelayer/quitasklayer/quitaskControl/quitask2/quitask2box/quitY" to="Pausebtningamelayer/quitasklayer/quitaskControl" method="_on_quitY_button_up"]
+[connection signal="button_up" from="Pausebtningamelayer/quitasklayer/quitaskControl/quitask2/quitask2box/quitN" to="Pausebtningamelayer/quitasklayer/quitaskControl" method="_on_quitN_button_up"]
